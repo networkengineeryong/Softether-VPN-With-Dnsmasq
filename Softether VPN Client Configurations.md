@@ -4,7 +4,8 @@ Softether VPN Client Configurations
 ##### DHCP Server Setting : 10.0.0.0/8, gw : 10.77.77.1, Lease-Range : 10.77.77.77 ~ 10.77.77.177
 
 1. sudo apt update
-[Softehter](https://www.softether-download.com/en.aspx?product=softether,"Softether Download Link")
+### SoftEther VPN Downloads
+<https://www.softether-download.com/en.aspx?product=softether>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 3. tar xvzf softehter-vpnclient ...
 4. cd vpnclient
