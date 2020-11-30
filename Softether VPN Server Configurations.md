@@ -4,7 +4,7 @@ Softether VPN Client Configurations
 
 1. sudo apt update
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
-3. sudo tar xvzf softether-server ...
+3. sudo tar xvzf softether-vpnserver ...
 4. cd vpnserver
 5. make > 1 / 1 / 1
 6. sudo vi /lib/systemd/system/vpnserver.service
