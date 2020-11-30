@@ -111,12 +111,13 @@ Specify Virtual Hub Name:
 15. UserCreate client
 16. UserPasswordSet client > enter pass
 17. BridgeCreate server /DEVICE:soft /TAP:yes
-18. sudo apt install dnsamsq
-19. sudo nano /etc/dnsmasq.conf
 </code>
 </pre>
 <pre>
 <code>
+18. sudo apt install dnsamsq
+19. sudo nano /etc/dnsmasq.conf
+
 interface=tap_soft
 dhcp-range=10.77.77.77,10.77.77.177,1m
 dhcp-option=option:router,10.77.77.1
