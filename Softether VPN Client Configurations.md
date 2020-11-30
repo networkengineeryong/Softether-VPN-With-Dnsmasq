@@ -15,7 +15,9 @@ Softether VPN Client Configurations
 #### it updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
 <pre>
 <code>
-2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
+2. wget https://www.softether-download.com/files/softether/
+v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/
+32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 3. tar xvzf softehter-vpnclient ...
 </code>
 </pre>
@@ -24,6 +26,29 @@ Softether VPN Client Configurations
 <code>
 4. cd vpnclient
 5. make
+
+Do you want to read the License Agreement for this software ?
+
+ 1. Yes
+ 2. No
+
+Please choose one of above number: 1
+
+Did you read and understand the License Agreement ?
+(If you couldn't read above text, Please read 'ReadMeFirst_License.txt'
+ file with any text editor.)
+
+ 1. Yes
+ 2. No
+
+Please choose one of above number: 1
+
+Did you agree the License Agreement ?
+
+1. Agree
+2. Do Not Agree
+
+Please choose one of above number: 1
 </code>
 </pre>
 #### License Agreement, Answer 1(Yes) All The Questions
