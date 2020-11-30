@@ -27,14 +27,14 @@ WantedBy=multi-user.target
 7. sudo systemctl enable vpnclient
 8. sudo systemctl start vpnclient
 9. ./vpncmd > 2 / enter
-10. niccreate soft
-11. accountcr client    (AccountCreate)
-12. accountpa client    (AccountPasswordSet)
-13. accountcon client   (AccountConnect)
-14. asg client          (AccountStatusGet)
-15. asst client         (AccountStartupSet)
+10. NicCreate Soft
+11. AccountCreate Client
+12. AccountPasswordSet Client
+13. AccountConnect Client
+14. AccountStatusGet Client
+15. AccountStartupSet Client
 
-[Case 1: Used allow-hotplug]
+[#Case 1: Used allow-hotplug]
 1. sudo nano /etc/network/interfaces
 <pre>
 <code>
@@ -49,7 +49,7 @@ iface vpn_soft inet dhcp
 # post-up sudo route add default gw 10.77.77.1 dev vpn_soft (used for need g/w)
 </code>
 </pre>
-[Case 2: Used dhclient command]
+[#Case 2: Used dhclient command]
 
 1. sudo touch vpnstart
 2. sudo chmod +x vpnstart
