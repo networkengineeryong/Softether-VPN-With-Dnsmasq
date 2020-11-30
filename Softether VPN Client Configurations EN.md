@@ -110,7 +110,7 @@ Connected to VPN Client "localhost".
 </code>
 </pre>
 
-# [Case 1: Used allow-hotplug]
+# [Case 1: Used allow-hotplug for DHCP Request]
 1. sudo nano /etc/network/interfaces
 <pre>
 <code>
@@ -125,7 +125,7 @@ iface vpn_soft inet dhcp
 #  post-up sudo route add default gw 10.77.77.1 dev vpn_soft # used for need g/w
 </code>
 </pre>
-# [Case 2: Used dhclient command]
+# [Case 2: Used dhclient command for DHCP Request]
 #### Make Script, Use to When VPN Started
 1. sudo touch vpnstart
 2. sudo chmod +x vpnstart
