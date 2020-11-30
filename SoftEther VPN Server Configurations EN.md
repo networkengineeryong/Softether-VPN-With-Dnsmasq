@@ -148,7 +148,7 @@ dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 ### END INIT INFO
 DAEMON=/home/server/vpnserver/vpnserver 
 LOCK=/var/lock/subsys/vpnserver
-**TAP_ADDR=10.77.77.1**                 
+TAP_ADDR=10.77.77.1                
 
 test -x $DAEMON || exit 0
 case "$1" in
