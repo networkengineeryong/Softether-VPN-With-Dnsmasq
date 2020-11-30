@@ -73,7 +73,7 @@ WantedBy=multi-user.target
 8. sudo systemctl start vpnserver
 </code>
 </pre>
-#### Vpnserver Startup Set, Start Vpnclient
+#### Vpnserver Startup Set, Start Vpnserver
 
 ### VPN Server Management Commands
 <https://www.softether.org/4-docs/1-manual/6._Command_Line_Management_Utility_Manual/6.3_VPN_Server_%2F%2F_VPN_Bridge_Management_Command_Reference_(For_Entire_Server)>
