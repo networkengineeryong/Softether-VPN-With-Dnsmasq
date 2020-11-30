@@ -27,7 +27,7 @@ Softether VPN Client 서버와 연결
 
 Do you want to read the License Agreement for this software ?
 
- 1. Yes
+ 1. Yes 
  2. No
 
 Please choose one of above number: 1
