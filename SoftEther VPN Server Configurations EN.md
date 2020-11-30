@@ -1,4 +1,4 @@
-Softether VPN Client Configurations
+Softether VPN Server Configurations
 ====================================
 ### OS Version : Linux ubuntu 5.4.0-52-generic #57-Ubuntu SMP Thu Oct 15 10:57:00 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ***
@@ -61,8 +61,8 @@ Description=SoftEther VPN Server​
 After=network.target​
 [Service]​
 Type=forking​
-ExecStart=/home/server/vpnserver/vpnserver start​ # enter your vpnserver directory
-ExecStop=/home/server/vpnserver/vpnserver stop​   #              ""
+ExecStart=/home/server/vpnserver/vpnserver start​
+ExecStop=/home/server/vpnserver/vpnserver stop​ 
 [Install]​
 WantedBy=multi-user.target
 </code>
@@ -103,13 +103,13 @@ Specify Virtual Hub Name:
 #### Select 1, VPN Server, Skip Destination Address, Hub name
 <pre>
 <code>
-10. HubCreate server > enter pass
+10. HubCreate server
 11. Hub server
 12. SecureNatDisable
 13. NatDisable
 14. DhcpDisable
 15. UserCreate client
-16. UserPasswordSet client > enter pass
+16. UserPasswordSet client
 17. BridgeCreate server /DEVICE:soft /TAP:yes
 </code>
 </pre>
@@ -148,7 +148,7 @@ dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 ### END INIT INFO
 DAEMON=/home/server/vpnserver/vpnserver 
 LOCK=/var/lock/subsys/vpnserver
-TAP_ADDR=10.77.77.1                
+TAP_ADDR=10.77.77.1                     
 
 test -x $DAEMON || exit 0
 case "$1" in

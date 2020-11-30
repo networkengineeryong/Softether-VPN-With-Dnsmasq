@@ -1,4 +1,4 @@
-Softether VPN Client 서버와 연결
+Softether VPN 클라이언트 서버에 연결
 ====================================
 ### OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
 ***
