@@ -11,9 +11,10 @@ Softether VPN Client Configurations
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 3. tar xvzf softehter-vpnclient ...
 4. cd vpnclient
-5. make > 1 / 1 / 1
+5. make
+#### License Agreement, Answer 1(Yes) All The Questions
 6. sudo vi /lib/systemd/system/vpnclient.service
-
+#### Create Vpnclient Service, Use to Startup Configuration
 <pre>
 <code>
 #!/bin/sh
@@ -22,8 +23,8 @@ Description=SoftEther VPN Client
 After=network.target
 [Service]
 Type=forking
-ExecStart=sudo /home/pi/vpnclient/vpnclient start
-ExecStop=sudo /home/pi/vpnclient/vpnclient stop
+ExecStart=sudo /home/pi/vpnclient/vpnclient start # enter your vpnclient directory
+ExecStop=sudo /home/pi/vpnclient/vpnclient stop   #              ""
 [Install]
 WantedBy=multi-user.target
 </code>
@@ -51,11 +52,11 @@ iface eth0 inet dhcp
 
 allow-hotplug vpn_soft
 iface vpn_soft inet dhcp
-# post-up sudo route add default gw 10.77.77.1 dev vpn_soft (used for need g/w)
+#  post-up sudo route add default gw 10.77.77.1 dev vpn_soft # used for need g/w
 </code>
 </pre>
 # [Case 2: Used dhclient command]
-
+#### Make Script, Use to When VPN Started
 1. sudo touch vpnstart
 2. sudo chmod +x vpnstart
 3. sudo nano vpnstart
@@ -75,10 +76,9 @@ Description=SoftEther VPN Client
 After=network.target
 [Service]
 Type=forking
-ExecStart=sudo /home/pi/vpnclient/vpnstart
+ExecStart=sudo /home/pi/vpnclient/vpnstart       # Enter Your Script File's Directory
 ExecStop=sudo /home/pi/vpnclient/vpnclient stop
 [Install]
 WantedBy=multi-user.target
 </code>
 </pre>
-sudo iptables -t nat -A PREROUTING -i {interface card reader} -j DNAT --to {interface to home network ip}
