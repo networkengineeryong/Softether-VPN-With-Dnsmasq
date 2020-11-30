@@ -146,9 +146,9 @@ dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 # Short-Description: Start daemon at boot time
 # Description: Enable Softether by daemon.
 ### END INIT INFO
-DAEMON=/home/server/vpnserver/vpnserver # need to change
+DAEMON=/home/server/vpnserver/vpnserver 
 LOCK=/var/lock/subsys/vpnserver
-TAP_ADDR=10.77.77.1 # need to change
+**TAP_ADDR=10.77.77.1**                 
 
 test -x $DAEMON || exit 0
 case "$1" in
@@ -156,7 +156,7 @@ start)
 $DAEMON start
 touch $LOCK
 sleep 1
-/sbin/ifconfig tap_wlan $TAP_ADDR/8 # need to change
+/sbin/ifconfig tap_wlan $TAP_ADDR/8     
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ;;
 stop)
@@ -168,7 +168,7 @@ $DAEMON stop
 sleep 3
 $DAEMON start
 sleep 1
-/sbin/ifconfig tap_wlan $TAP_ADDR/8 # need to change
+/sbin/ifconfig tap_wlan $TAP_ADDR/8     
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"
