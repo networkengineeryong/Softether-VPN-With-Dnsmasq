@@ -1,4 +1,4 @@
-Softether VPN Client Configurations
+Softether VPN Client Connect to Server
 ====================================
 ### OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
 ***
