@@ -12,7 +12,7 @@ Softether VPN Client 서버와 연결
 1. sudo apt update
 </code>
 </pre>
-##### 새 패키지, 업그레이드가 필요한 패키지의 업그레이드를 위해 패키지 목록을 업데이트
+#### 새 패키지, 업그레이드가 필요한 패키지의 업그레이드를 위해 패키지 목록을 업데이트
 <pre>
 <code>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
