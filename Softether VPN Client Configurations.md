@@ -12,7 +12,7 @@ Softether VPN Client Configurations
 1. sudo apt update
 </code>
 </pre>
-#### it updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
+### it updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
 <pre>
 <code>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
