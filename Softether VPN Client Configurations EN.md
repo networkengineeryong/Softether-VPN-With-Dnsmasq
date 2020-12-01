@@ -4,7 +4,8 @@ Softether VPN Client Connect to Server
 ***
 ### DHCP Server Setting : 10.0.0.0/8, gw : 10.77.77.1, Lease-Range : 10.77.77.77 ~ 10.77.77.177
 ***
-### SoftEther VPN Download
+### Get SoftEther VPN download link
+### Copy Link your own CPU Architecture Version, This Post Used ARM_EABI x32
 <https://www.softether-download.com/en.aspx?product=softether>
 ***
 <pre>
@@ -12,14 +13,14 @@ Softether VPN Client Connect to Server
 1. sudo apt update
 </code>
 </pre>
-##### it updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
+##### It updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
 <pre>
 <code>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 3. tar xvzf softehter-vpnclient ...
 </code>
 </pre>
-#### Download VPN Client, Unzip it.
+#### Download VPN client, unzip it.
 <pre>
 <code>
 4. cd vpnclient
@@ -49,13 +50,13 @@ Did you agree the License Agreement ?
 Please choose one of above number: 1
 </code>
 </pre>
-#### License Agreement, Answer 1(Yes) All The Questions
+#### License agreement, answer 1(Yes) all the questions
 <pre>
 <code>
 6. sudo vi /lib/systemd/system/vpnclient.service
 </code>
 </pre>
-#### Create Vpnclient Service, Use to Startup Configuration
+#### Create vpn client service, use to startup configuration
 <pre>
 <code>
 #!/bin/sh
@@ -76,9 +77,9 @@ WantedBy=multi-user.target
 8. sudo systemctl start vpnclient
 </code>
 </pre>
-#### Vpnclient Startup Set, Start Vpnclient
+#### Vpnclient startup set, start vpn client
 
-### VPN Client Management Commands
+### VPN Client management commands
 <https://www.softether.org/4-docs/1-manual/6._Command_Line_Management_Utility_Manual/6.5_VPN_Client_Management_Command_Reference>
 <pre>
 <code>
@@ -98,7 +99,7 @@ Hostname of IP Address of Destination:
 Connected to VPN Client "localhost".
 </code>
 </pre>
-#### Select 2, VPN Client, Skip Destination Address
+#### Enter 2, VPN Client, skip destination address
 <pre>
 <code>
 10. NicCreate soft
@@ -110,7 +111,7 @@ Connected to VPN Client "localhost".
 </code>
 </pre>
 
-# [Case 1: Used allow-hotplug for DHCP Request]
+# [Case 1: Used allow-hotplug for DHCP request]
 1. sudo nano /etc/network/interfaces
 <pre>
 <code>
@@ -125,8 +126,8 @@ iface vpn_soft inet dhcp
 #  post-up sudo route add default gw 10.77.77.1 dev vpn_soft # used for need g/w
 </code>
 </pre>
-# [Case 2: Used dhclient command for DHCP Request]
-#### Make Script, Use to When VPN Started
+# [Case 2: Used dhclient command for DHCP request]
+#### Create vpn client startup script
 1. sudo touch vpnstart
 2. sudo chmod +x vpnstart
 3. sudo nano vpnstart
@@ -152,3 +153,4 @@ ExecStop=sudo /home/pi/vpnclient/vpnclient stop
 WantedBy=multi-user.target
 </code>
 </pre>
+### Change vpn client service script

@@ -2,7 +2,8 @@ Softether VPN 서버 설정
 ====================================
 ### OS Version : Linux ubuntu 5.4.0-52-generic #57-Ubuntu SMP Thu Oct 15 10:57:00 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ***
-### SoftEther VPN 다운로드 사이트
+### SoftEther VPN 다운로드 링크 복사
+### 자신의 CPU 아키텍처에 맞는 버전의 링크를 복사, 본 글은 Linux x64 버전을 사용
 <https://www.softether-download.com/en.aspx?product=softether>
 ***
 <pre>
@@ -53,7 +54,7 @@ Please choose one of above number: 1
 6. sudo vi /lib/systemd/system/vpnclient.service
 </code>
 </pre>
-#### 서버 서비스 파일 생성
+#### 서버 서비스 파일 생성, 시작 프로그램 등록에 사용
 <pre>
 <code>
 #!/bin/sh​
@@ -114,6 +115,7 @@ Specify Virtual Hub Name:
 17. BridgeCreate server /DEVICE:soft /TAP:yes
 </code>
 </pre>
+### VPN Server 기본 사용법, DNSMASQ g/w 인터페이스로 TAP Device를 사용
 <pre>
 <code>
 18. sudo apt install dnsamsq
@@ -157,7 +159,7 @@ start)
 $DAEMON start
 touch $LOCK
 sleep 1
-/sbin/ifconfig tap_wlan $TAP_ADDR/8     
+/sbin/ifconfig tap_soft $TAP_ADDR/8     
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ;;
 stop)
@@ -169,7 +171,7 @@ $DAEMON stop
 sleep 3
 $DAEMON start
 sleep 1
-/sbin/ifconfig tap_wlan $TAP_ADDR/8     
+/sbin/ifconfig tap_soft $TAP_ADDR/8     
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"
@@ -178,7 +180,14 @@ esac
 exit 0
 </code>
 </pre>
-#### VPN 서버 실행 시 사용할 스크립트
+#### VPN 서버 init 스크립트
+<pre>
+<code>
+TAP_ADDR=10.77.77.1 : 자신의 DNSMASQ g/w 주소 입력
+/sbin/ifconfig tap_soft $TAP_ADDR/8 : DNSMASQ 설정에 맞는 서브넷 할당
+iptables -t nat -A POSTROUTING -j MASQUERADE : 리눅스의 NAT기능이다, 클라이언트가 서버를 통해 다른 네트워크에 접속할 수 있도록 한다
+</code>
+</pre>
 <pre>
 <code>
 23. sudo sysctl -w net.ipv4.ip_forward=1

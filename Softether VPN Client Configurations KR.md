@@ -4,7 +4,8 @@ Softether VPN 클라이언트 서버에 연결
 ***
 ### DHCP Server Setting : 10.0.0.0/8, gw : 10.77.77.1, Lease-Range : 10.77.77.77 ~ 10.77.77.177
 ***
-### SoftEther VPN 다운로드 사이트
+### SoftEther VPN 다운로드 링크 복사
+### 자신의 CPU 아키텍처에 맞는 버전의 링크를 복사, 본 글은 ARM_EABI x32 버전을 사용
 <https://www.softether-download.com/en.aspx?product=softether>
 ***
 <pre>
@@ -55,7 +56,7 @@ Please choose one of above number: 1
 6. sudo vi /lib/systemd/system/vpnclient.service
 </code>
 </pre>
-#### 클라이언트 서비스 파일 생성
+#### 클라이언트 서비스 파일 생성, 시작 프로그램 등록에 사용
 <pre>
 <code>
 #!/bin/sh
@@ -146,9 +147,10 @@ Description=SoftEther VPN Client
 After=network.target
 [Service]
 Type=forking
-ExecStart=sudo /home/pi/vpnclient/vpnstart       # Enter Your Script File's Directory
+ExecStart=sudo /home/pi/vpnclient/vpnstart
 ExecStop=sudo /home/pi/vpnclient/vpnclient stop
 [Install]
 WantedBy=multi-user.target
 </code>
 </pre>
+### 생성한 스크립트를 서비스에 등록

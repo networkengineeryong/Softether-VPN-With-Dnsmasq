@@ -2,7 +2,8 @@ Softether VPN Server Configurations
 ====================================
 ### OS Version : Linux ubuntu 5.4.0-52-generic #57-Ubuntu SMP Thu Oct 15 10:57:00 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ***
-### SoftEther VPN Download
+### Get SoftEther VPN download link
+### Copy link your own CPU Architecture version, This post used Linux x64
 <https://www.softether-download.com/en.aspx?product=softether>
 ***
 <pre>
@@ -10,14 +11,14 @@ Softether VPN Server Configurations
 1. sudo apt update
 </code>
 </pre>
-##### it updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
+##### It updates the package lists for upgrades for packages that need upgrading, as well as new packages that have just come to the repositories.
 <pre>
 <code>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
 3. sudo tar xvzf softether-vpnserver ...
 </code>
 </pre>
-#### Download VPN Client, Unzip it.
+#### Download VPN client, unzip it.
 <pre>
 <code>
 4. cd vpnserver
@@ -52,7 +53,7 @@ Please choose one of above number: 1
 6. sudo vi /lib/systemd/system/vpnclient.service
 </code>
 </pre>
-#### Create Vpnserver Service, Use to Startup Configuration
+#### Create vpn server service, use to startup configuration
 <pre>
 <code>
 #!/bin/sh​
@@ -73,9 +74,9 @@ WantedBy=multi-user.target
 8. sudo systemctl start vpnserver
 </code>
 </pre>
-#### Vpnserver Startup Set, Start Vpnclient
+#### Vpnserver startup set, start vpn client
 
-### VPN Server Management Commands
+### VPN server management commands
 <https://www.softether.org/4-docs/1-manual/6._Command_Line_Management_Utility_Manual/6.3_VPN_Server_%2F%2F_VPN_Bridge_Management_Command_Reference_(For_Entire_Server)>
 <pre>
 <code>
@@ -100,7 +101,7 @@ If connecting by server admin mode, please press Enter without inputting anythin
 Specify Virtual Hub Name: 
 </code>
 </pre>
-#### Select 1, VPN Server, Skip Destination Address, Hub name
+#### Enter 1, VPN server, skip destination address, hub name
 <pre>
 <code>
 10. HubCreate server
@@ -113,6 +114,7 @@ Specify Virtual Hub Name:
 17. BridgeCreate server /DEVICE:soft /TAP:yes
 </code>
 </pre>
+### Basic usage commands, use TAP device to DNSMASQ g/w interface
 <pre>
 <code>
 18. sudo apt install dnsamsq
@@ -131,7 +133,7 @@ dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 21. sudo systemctl start dnsmasq
 </code>
 </pre>
-#### dnsmasq Startup Set, Start dnsmasq
+#### Dnsmasq startup setting, start dnsmasq
 <pre>
 <code>
 22. sudo nano /etc/init.d/vpnserver
@@ -156,7 +158,7 @@ start)
 $DAEMON start
 touch $LOCK
 sleep 1
-/sbin/ifconfig tap_wlan $TAP_ADDR/8     
+/sbin/ifconfig tap_soft $TAP_ADDR/8     
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ;;
 stop)
@@ -168,7 +170,7 @@ $DAEMON stop
 sleep 3
 $DAEMON start
 sleep 1
-/sbin/ifconfig tap_wlan $TAP_ADDR/8     
+/sbin/ifconfig tap_soft $TAP_ADDR/8     
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"
@@ -177,11 +179,18 @@ esac
 exit 0
 </code>
 </pre>
-#### Script When Started Vpnserver
+#### Vpnserver init script
+<pre>
+<code>
+TAP_ADDR=10.77.77.1 : Enter your DNSMASQ g/w
+/sbin/ifconfig tap_soft $TAP_ADDR/8 : Enter your DNSMASQ subnetmask
+iptables -t nat -A POSTROUTING -j MASQUERADE : NAT on Linux, helps clients connect to other networks through sessrver
+</code>
+</pre>
 <pre>
 <code>
 23. sudo sysctl -w net.ipv4.ip_forward=1
 24. sudo reboot
 </code>
 </pre>
-#### ip_forward Enable And Reboot
+#### Enable ip_forward and reboot
