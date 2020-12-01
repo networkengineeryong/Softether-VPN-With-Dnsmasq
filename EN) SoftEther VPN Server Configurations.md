@@ -80,7 +80,7 @@ WantedBy=multi-user.target
 <https://www.softether.org/4-docs/1-manual/6._Command_Line_Management_Utility_Manual/6.3_VPN_Server_%2F%2F_VPN_Bridge_Management_Command_Reference_(For_Entire_Server)>
 <pre>
 <code>
-9. ./vpncmd > 1 / enter / enter
+9. ./vpncmd
 
 By using vpncmd program, the following can be achieved. 
 
