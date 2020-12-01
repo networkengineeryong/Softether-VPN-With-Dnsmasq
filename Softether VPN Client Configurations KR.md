@@ -65,8 +65,8 @@ Description=SoftEther VPN Client
 After=network.target
 [Service]
 Type=forking
-ExecStart=sudo /home/pi/vpnclient/vpnclient start # enter your vpnclient directory
-ExecStop=sudo /home/pi/vpnclient/vpnclient stop   #              ""
+ExecStart=sudo /home/pi/vpnclient/vpnclient start 
+ExecStop=sudo /home/pi/vpnclient/vpnclient stop   
 [Install]
 WantedBy=multi-user.target
 </code>
