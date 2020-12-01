@@ -112,6 +112,7 @@ Connected to VPN Client "localhost".
 15. AccountStartupSet client
 </code>
 </pre>
+#### Basic uasge VPN Client
 
 # [Case 1: Used allow-hotplug for DHCP request]
 1. sudo nano /etc/network/interfaces

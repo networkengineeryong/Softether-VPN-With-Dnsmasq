@@ -117,7 +117,7 @@ Specify Virtual Hub Name:
 17. BridgeCreate server /DEVICE:soft /TAP:yes
 </code>
 </pre>
-### Basic usage commands, use TAP device to DNSMASQ g/w interface
+### Disable VPN NAT, DHCP, use TAP device to DNSMASQ g/w interface
 <pre>
 <code>
 18. sudo apt install dnsamsq

@@ -112,6 +112,7 @@ Connected to VPN Client "localhost".
 15. AccountStartupSet client
 </code>
 </pre>
+#### VPN 클라이언트 기본 사용법
 
 # [Case 1: allow-hotplug 사용해 DHCP 요청하기]
 1. sudo nano /etc/network/interfaces

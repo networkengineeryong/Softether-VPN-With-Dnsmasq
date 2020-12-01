@@ -117,7 +117,7 @@ Specify Virtual Hub Name:
 17. BridgeCreate server /DEVICE:soft /TAP:yes
 </code>
 </pre>
-### VPN Server 기본 사용법, DNSMASQ g/w 인터페이스로 TAP Device를 사용
+### VPN NAT, DHCP기능 비활성화, DNSMASQ g/w 인터페이스로 TAP Device를 사용
 <pre>
 <code>
 18. sudo apt install dnsamsq
