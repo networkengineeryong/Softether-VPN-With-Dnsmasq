@@ -66,7 +66,7 @@ After=network.target
 [Service]
 Type=forking
 ExecStart=sudo /home/pi/vpnclient/vpnclient start 
-ExecStop=sudo /home/pi/vpnclient/vpnclient stop   
+ExecStop=sudo /home/pi/vpnclient/vpnclient stop  
 [Install]
 WantedBy=multi-user.target
 </code>
