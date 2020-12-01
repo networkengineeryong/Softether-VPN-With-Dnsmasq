@@ -51,7 +51,7 @@ Please choose one of above number: 1
 </code>
 </pre>
 #### 라이선스 동의, 모든 질문에 1로 답변
-## "The preparation of SoftEther VPN Client is completed !" < 파일 생성 성공 문구
+### "The preparation of SoftEther VPN Client is completed !" < 파일 생성 성공 문구
 #### 해당 문구가 뜨지않고 오류가 발생했을 경우 CPU와 VPN 클라이언트 버전이 맞는지 확인
 <pre>
 <code>
