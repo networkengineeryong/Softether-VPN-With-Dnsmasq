@@ -5,4 +5,4 @@
 #### SoftEther VPN에서 지원하는 SecureNat, DHCP 기능을 사용하지 않고 DNSMASQUERADE로 DHCP 서버를 운영한다.
 - - -
 ### Basic usage Softether VPN Server, Client
-#### Not use SecureNat, DHCP in Softether VPN only use DNSMASQUERADE
+#### Not use SecureNat, DHCP in Softether VPN, only use DNSMASQUERADE
