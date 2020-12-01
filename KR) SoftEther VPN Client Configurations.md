@@ -51,6 +51,7 @@ Please choose one of above number: 1
 </code>
 </pre>
 #### 라이선스 동의, 모든 질문에 1로 답변
+## "The preparation of SoftEther VPN Client is completed !" < 파일 생성 성공 문구
 <pre>
 <code>
 6. sudo vi /lib/systemd/system/vpnclient.service

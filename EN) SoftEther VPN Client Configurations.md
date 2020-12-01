@@ -51,8 +51,7 @@ Please choose one of above number: 1
 </code>
 </pre>
 #### License agreement, answer 1(Yes) all the questions
-*** The preparation of SoftEther VPN Client is completed ! ***
-#### Create files Success massage
+## "The preparation of SoftEther VPN Client is completed !" < Create files Success massage
 <pre>
 <code>
 6. sudo vi /lib/systemd/system/vpnclient.service
