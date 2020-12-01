@@ -48,6 +48,9 @@ Did you agree the License Agreement ?
 Please choose one of above number: 1
 </code>
 </pre>
+#### License agreement, answer 1(Yes) all the questions
+## "The preparation of SoftEther VPN Server is completed !" < Create files Success massage
+#### If the text does not appear, CPU and VPN Server version compatibility check
 <pre>
 <code>
 6. sudo vi /lib/systemd/system/vpnclient.service
