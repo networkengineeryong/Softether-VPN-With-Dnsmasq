@@ -40,7 +40,7 @@ VPN Client> AccountStartupSet [name]
 <pre>
 <code>
 VPN Client> NicCreate soft
-VPN Client> AccountCreate client /server:172.16.0.1:443 /hub:server /username:client /nicname:soft
+VPN Client> AccountCreate client /server:192.168.0.178:443 /hub:server /username:client /nicname:soft
 VPN Client> AccountPasswordSet client /password:client /type:standard
 VPN Client> AccountConnect client
 VPN Client> AccountStatusGet client
