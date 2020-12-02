@@ -1,13 +1,10 @@
 # Softether-VPN-With-Dnsmasq
-SoftEther VPN Server, Client Setting With DNSMASQUERADE
+VPN : SoftEther VPN
+DHCP : DNSMASQUERADE
 
-SoftEther VPN Server, Client의 기본적인 사용방법
+SoftEther VPN Server: CentOS 7
+SoftEther VPN Client: Raspberrypi 5.4.51-v71+
 
-SoftEther VPN에서 지원하는 SecureNat, DHCP 기능을 사용하지 않고 DNSMASQUERADE로 DHCP 서버를 운영한다.
-- - -
-Basic usage Softether VPN Server, Client
-Not use SecureNat, DHCP in Softether VPN, only use DNSMASQUERADE
-- - -
 ### VPN Server install guide
 https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/SoftEther%20VPN%20Server%20Install%20guide%20CentOS%207.md
 
