@@ -33,8 +33,10 @@ cd vpnclient
 
     /etc/hosts 파일에 vpnserver로 서버 ip를 지정해 놓으면 서버에 연결하는 커맨드다.
 
-    만약 hosts파일에 vpnserver가 없으면 계정이 생성되지 않는다.
+    만약 hosts에 vpnserver가 없어 계정 생성이 안된다면 수동으로 계정을 생성해야 한다.
     
+    <https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/SoftEther%20VPN%20Client%20config%20guide.md>
+
 <pre>
 <code>
 /etc/hosts
