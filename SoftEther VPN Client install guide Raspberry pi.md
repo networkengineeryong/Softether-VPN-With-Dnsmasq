@@ -26,7 +26,17 @@ cd vpnclient
 (echo 1; echo 1; echo 1) | make
 </code>
 </pre>
-4. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
+4. vpn 클라이언트 계정 생성, 서버 연결하기
+    /etc/hosts 파일에 vpnserver로 서버 ip를 지정해 놓으면 서버에 연결하는 커맨드다.
+<pre>
+<code>
+cat /etc/hosts | grep vpnserver > ~/test
+sed -i 's/'vpnserver'/''/' ~/test
+(echo 2;echo ;echo ;echo AccountCreate client /server:"$(echo "$(cat ~/test | sed '/^$/d;s/[[:blank:]]//g'):443")" /hub:server /username:client /nicname:soft;echo AccountPasswordSet client /password:client /type:standard;echo AccountConnect client;echo AccountStartupSet client) | /home/$USER/vpnclient/vpncmd
+</code>
+</pre>
+
+5. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
 <pre>
 <code>
 user=$USER

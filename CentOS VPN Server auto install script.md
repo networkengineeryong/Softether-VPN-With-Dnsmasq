@@ -10,7 +10,7 @@ sudo ./vpnserver start
 sudo yum install dnsmasq
 sudo systemctl enable dnsmasq
 sudo systemctl start dnsmasq
-(echo 1; echo ;echo ;echo HubCreate server /password:client;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable; usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /home/$user/vpnserver/vpncmd
+(echo 1; echo ;echo ;echo HubCreate server /password:client;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable; usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /home/$USER/vpnserver/vpncmd
 echo 'interface=tap_soft
 dhcp-range=172.16.0.2,172.16.3.254,12h
 dhcp-option=option:router,172.24.0.1/22
