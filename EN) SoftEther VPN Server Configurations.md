@@ -15,10 +15,10 @@ Softether VPN Server Configurations
 <pre>
 <code>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
-3. sudo tar xvzf softether-vpnserver ...
+3. sudo tar xvzf softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
 </code>
 </pre>
-#### Download VPN client, unzip it.
+#### Download VPN server, unzip it.
 <pre>
 <code>
 4. cd vpnserver
@@ -53,7 +53,7 @@ Please choose one of above number: 1
 #### If the text does not appear, CPU and VPN Server version compatibility check
 <pre>
 <code>
-6. sudo vi /lib/systemd/system/vpnclient.service
+6. sudo vi /lib/systemd/system/vpnserver.service
 </code>
 </pre>
 #### Create vpn server service, use to startup configuration
@@ -77,7 +77,7 @@ WantedBy=multi-user.target
 8. sudo systemctl start vpnserver
 </code>
 </pre>
-#### Vpnserver startup set, start vpn client
+#### Vpnserver startup set, start vpn server
 
 ### VPN server management commands
 <https://www.softether.org/4-docs/1-manual/6._Command_Line_Management_Utility_Manual/6.3_VPN_Server_%2F%2F_VPN_Bridge_Management_Command_Reference_(For_Entire_Server)>
@@ -124,8 +124,8 @@ Specify Virtual Hub Name:
 19. sudo nano /etc/dnsmasq.conf
 
 interface=tap_soft
-dhcp-range=10.77.77.77,10.77.77.177,1m
-dhcp-option=option:router,10.77.77.1
+dhcp-range=172.16.0.2,172.16.3.254,12h
+dhcp-option=option:router,172.16.0.1
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 </code>
 </pre>
@@ -153,7 +153,7 @@ dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 ### END INIT INFO
 DAEMON=/home/server/vpnserver/vpnserver 
 LOCK=/var/lock/subsys/vpnserver
-TAP_ADDR=10.77.77.1                     
+TAP_ADDR=172.16.0.1                   
 
 test -x $DAEMON || exit 0
 case "$1" in
@@ -161,7 +161,7 @@ start)
 $DAEMON start
 touch $LOCK
 sleep 1
-/sbin/ifconfig tap_soft $TAP_ADDR/8     
+/sbin/ifconfig tap_soft $TAP_ADDR/22
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ;;
 stop)
@@ -173,7 +173,7 @@ $DAEMON stop
 sleep 3
 $DAEMON start
 sleep 1
-/sbin/ifconfig tap_soft $TAP_ADDR/8     
+/sbin/ifconfig tap_soft $TAP_ADDR/22
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"
@@ -183,13 +183,6 @@ exit 0
 </code>
 </pre>
 #### Vpnserver init script
-<pre>
-<code>
-TAP_ADDR=10.77.77.1 : Enter your DNSMASQ g/w
-/sbin/ifconfig tap_soft $TAP_ADDR/8 : Enter your DNSMASQ subnetmask
-iptables -t nat -A POSTROUTING -j MASQUERADE : NAT on Linux, helps clients connect to other networks through sessrver
-</code>
-</pre>
 <pre>
 <code>
 23. sudo sysctl -w net.ipv4.ip_forward=1

@@ -2,8 +2,6 @@ Softether VPN 클라이언트 서버에 연결
 ====================================
 ### OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
 ***
-### DHCP Server Setting : 10.0.0.0/8, gw : 10.77.77.1, Lease-Range : 10.77.77.77 ~ 10.77.77.177
-***
 ### SoftEther VPN 다운로드 링크 복사
 ### 자신의 CPU 아키텍처에 맞는 버전의 링크를 복사, 본 글은 ARM_EABI x32 버전을 사용
 <https://www.softether-download.com/en.aspx?product=softether>
@@ -17,7 +15,7 @@ Softether VPN 클라이언트 서버에 연결
 <pre>
 <code>
 2. wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
-3. tar xvzf softehter-vpnclient ...
+3. tar xvzf softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 </code>
 </pre>
 #### 클라이언트 다운로드, 압축 풀기
@@ -51,8 +49,6 @@ Please choose one of above number: 1
 </code>
 </pre>
 #### 라이선스 동의, 모든 질문에 1로 답변
-### "The preparation of SoftEther VPN Client is completed !" < 파일 생성 성공 문구
-#### 해당 문구가 뜨지않고 오류가 발생했을 경우 CPU와 VPN 클라이언트 버전이 맞는지 확인
 <pre>
 <code>
 6. sudo vi /lib/systemd/system/vpnclient.service
@@ -113,23 +109,6 @@ Connected to VPN Client "localhost".
 </code>
 </pre>
 #### VPN 클라이언트 기본 사용법
-
-# [Case 1: allow-hotplug 사용해 DHCP 요청하기]
-1. sudo nano /etc/network/interfaces
-<pre>
-<code>
-auto lo
-iface lo inet loopback
-
-auto eth0
-iface eth0 inet dhcp
-
-allow-hotplug vpn_soft
-iface vpn_soft inet dhcp
-#  post-up sudo route add default gw 10.77.77.1 dev vpn_soft # used for need g/w
-</code>
-</pre>
-# [Case 2: dhclient 명령어를 통해 DHCP 요청하기]
 #### 클라이언트가 실행될 때 사용할 스크립트를 생성
 1. sudo touch vpnstart
 2. sudo chmod +x vpnstart
