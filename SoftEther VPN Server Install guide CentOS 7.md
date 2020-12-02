@@ -32,7 +32,7 @@ sudo systemctl start dnsmasq
 </pre>
 4. VPN Hub생성, Hub 패스워드 설정, SecureNAT, NAT, DHCP 비활성화, 유저 생성, 유저 패스워드 설정, TAP DEViCE 생성
 
-허브명 : server / 허브 패스워드 : server/ 유저명 : client / 유저 패스워드 : client / TAP 디바이스 명 : soft
+    허브명 : server / 허브 패스워드 : server/ 유저명 : client / 유저 패스워드 : client / TAP 디바이스 명 : soft
 <pre>
 <code>
 (echo 1; echo ;echo ;echo HubCreate server /password:server;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable; usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /home/$user/vpnserver/vpncmd
