@@ -46,12 +46,13 @@ ff02::2         ip6-allrouters
 cat /etc/hosts | grep vpnserver > ~/test
 sed -i 's/'vpnserver'/''/' ~/test
 (echo 2;echo ;echo ;echo AccountCreate client /server:"$(echo "$(cat ~/test | sed '/^$/d;s/[[:blank:]]//g'):443")" /hub:server /username:client /nicname:soft;echo AccountPasswordSet client /password:client /type:standard;echo AccountConnect client;echo AccountStartupSet client) | /home/$USER/vpnclient/vpncmd
+sudo rm -r ~/test
 </code>
 </pre>
 
 5. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
 <pre>
-<code>
+<code>  
 user=$USER
 echo '#!/bin/sh
 [Unit]
@@ -115,7 +116,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 5. iptables 설정
 <pre>
 <code>
-sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+sudo iptables -t nat -A PREROUTING -j DNAT --to {인터넷에 연결된 인터페이스 IP}
 sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 
 sudo nano /etc/rc.local 에 다음 내용 추가
