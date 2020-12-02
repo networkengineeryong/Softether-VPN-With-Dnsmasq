@@ -78,6 +78,5 @@ dhcp-option=option:router,192.168.224.1/30
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases' > /etc/dnsmasq.conf
 sudo sh -c "echo 'interface eth1
 static ip_address=192.168.224.1/30' >> /etc/dhcpcd.conf"
-
 </code>
 </pre>
