@@ -81,6 +81,8 @@ sudo systemctl start vpnclient
 
 인터넷은 eth0, 기기는 eth1에 연결되어 있다고 가정한다
 
+eth0 ip = 192.168.0.178
+
 1. eth1 static ip 설정
 <pre>
 <code>
@@ -117,7 +119,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 5. iptables 설정
 <pre>
 <code>
-sudo iptables -t nat -A PREROUTING -j DNAT --to {eth0 ip}
+sudo iptables -t nat -A PREROUTING -j DNAT --to 192.168.0.178
 sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 
 sudo nano /etc/rc.local 에 다음 내용 추가
