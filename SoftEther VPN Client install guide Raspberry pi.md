@@ -1,5 +1,8 @@
 # VPN Client on Raspberry pi
 ====================================
+
+## 모든 커맨드는 일반 유저 권한으로 입력합니다.
+
 1. apt update
 <pre>
 <code>
