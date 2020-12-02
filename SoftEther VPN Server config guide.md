@@ -21,7 +21,7 @@ By using vpncmd program, the following can be achieved.
 
 1. Management of VPN Server or VPN Bridge 
 2. Management of VPN Client
-3. Use of VPN Tools (certificate creation and Network Traffic Speed Test Tool)
+3. Use of VPN Tools (certificate creation and Network Traffic Speed server Tool)
 
 Select 1, 2 or 3: 1
 
@@ -42,28 +42,28 @@ You have administrator privileges for the entire VPN Server.
 1. 가상 허브 생성, 접속
 <pre>
 <code>
-VPN Server> HubCreate test
-VPN Server> Hub test
+VPN Server> HubCreate server
+VPN Server> Hub server
 </code>
 </pre>
 2. SecureNAT, NAT, DHCP 비활성화
 <pre>
 <code>
-VPN Server/test> SecureNatDisable
-VPN Server/test> NatDisable
-VPN Server/test> DhcpDisable
+VPN Server/server> SecureNatDisable
+VPN Server/server> NatDisable
+VPN Server/server> DhcpDisable
 </code>
 </pre>
 3. 유저 생성
 <pre>
 <code>
-VPN Server/test> UserCreate client
-VPN Server/test> UserPasswordSet client
+VPN Server/server> UserCreate client /Group: /Realname:client /Note:
+VPN Server/server> UserPasswordSet client /Password: client
 </code>
 </pre>
 4. DNSMASQ 인터페이스로 사용하기 위해 TAP Device 생성
 <pre>
 <code>
-VPN Server/test> BridgeCreate test /DEVICE:soft /TAP:yes)
+VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes)
 </code>
 </pre>

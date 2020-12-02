@@ -31,6 +31,14 @@ sudo systemctl start dnsmasq
 </code>
 </pre>
 4. VPN Server 기본 설정
+<pre>
+<code>
+(echo 1; echo ;echo ;echo HubCreate server /password:client;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable; usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /home/
+</code>
+</pre>
+
+### 설정 방법
+<https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/KR)%20SoftEther%20VPN%20Server%20Configurations.md#softether-vpn-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95>
 
 5. dnsmasq 설정
 <pre>
