@@ -46,7 +46,7 @@ VPN Server> HubCreate server
 VPN Server> Hub server
 </code>
 </pre>
-2. SecureNAT, NAT, DHCP 비활성화
+2. SecureNAT, NAT, DHCP 비활성화 (DNSMASQ를 사용하기 때문)
 <pre>
 <code>
 VPN Server/server> SecureNatDisable
@@ -61,7 +61,7 @@ VPN Server/server> UserCreate client /Group: /Realname:client /Note:
 VPN Server/server> UserPasswordSet client /Password: client
 </code>
 </pre>
-4. DNSMASQ 인터페이스로 사용하기 위해 TAP Device 생성
+4. DNSMASQ 인터페이스로 사용하기 위한 TAP Device 생성
 <pre>
 <code>
 VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes)
