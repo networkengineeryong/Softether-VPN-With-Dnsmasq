@@ -33,8 +33,7 @@ sudo systemctl start dnsmasq
 4. VPN Server 기본 설정
 <pre>
 <code>
-(echo 1; echo ;echo ;echo HubCreate server /password:client;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable; usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /home/
-</code>
+(echo 1; echo ;echo ;echo HubCreate server /password:client;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable; usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /home/$USER/vpnserver/vpncmd</code>
 </pre>
 
 ### 자세한 설정 방법
