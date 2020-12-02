@@ -8,9 +8,9 @@ sudo yum update
 </pre>
 2. 자신의 CPU 아키텍처와 맞는 버전의 다운로드 링크 복사. 테스트 환경 :Linux x64 (CentOS 7)
 
-wget으로 파일을 다운로드 받고, 압축을 푼 뒤 vpnserver를 실행한다.
+    wget으로 파일을 다운로드 받고, 압축을 푼 뒤 vpnserver를 실행한다.
 
-<https://www.softether-download.com/en.aspx?product=softether>
+    <https://www.softether-download.com/en.aspx?product=softether>
 
 <pre>
 <code>
