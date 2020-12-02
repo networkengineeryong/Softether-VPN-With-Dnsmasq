@@ -64,6 +64,6 @@ VPN Server/server> UserPasswordSet client /Password: client
 4. DNSMASQ 인터페이스로 사용하기 위한 TAP Device 생성
 <pre>
 <code>
-VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes)
+VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes
 </code>
 </pre>
