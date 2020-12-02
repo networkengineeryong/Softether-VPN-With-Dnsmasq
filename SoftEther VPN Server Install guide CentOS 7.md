@@ -31,6 +31,7 @@ sudo systemctl start dnsmasq
 </code>
 </pre>
 4. VPN Server 기본 설정
+
     명령어를 입력하면 Hub: server, pw: server / user client, pw:client / SecureNAT, NAT, DHCP가 비활성화 되고, TAP Device가 생성된다.
 <pre>
 <code>
