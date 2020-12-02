@@ -7,8 +7,11 @@ sudo yum update
 </code>
 </pre>
 2. 자신의 CPU 아키텍처와 맞는 버전의 다운로드 링크 복사. 테스트 환경 :Linux x64 (CentOS 7)
+
 wget으로 파일을 다운로드 받고, 압축을 푼 뒤 vpnserver를 실행한다.
+
 <https://www.softether-download.com/en.aspx?product=softether>
+
 <pre>
 <code>
 wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz

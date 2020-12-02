@@ -7,8 +7,11 @@ sudo apt update
 </code>
 </pre>
 OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
+
 자신의 CPU 아키텍처에 맞는 버전의 다운로드 링크를 복사, 테스트 환경: ARM_EABI x32
+
 <https://www.softether-download.com/en.aspx?product=softether>
+
 2. Client 다운로드 후 압축 해제
 <pre>
 <code>
