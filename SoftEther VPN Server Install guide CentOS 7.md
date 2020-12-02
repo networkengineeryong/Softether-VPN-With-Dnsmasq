@@ -37,7 +37,7 @@ sudo systemctl start dnsmasq
 </code>
 </pre>
 
-### 설정 방법
+### 자세한 설정 방법
 <https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/SoftEther%20VPN%20Server%20config%20guide.md#%EC%84%9C%EB%B2%84-%EA%B4%80%EB%A6%AC-%EB%AA%85%EB%A0%B9%EC%96%B4>
 
 5. dnsmasq 설정
