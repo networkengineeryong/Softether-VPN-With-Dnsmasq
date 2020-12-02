@@ -114,7 +114,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 5. iptables 설정
 <pre>
 <code>
-sudo iptables -t nat -A PREROUTING -j DNAT --to {인터넷에 연결된 인터페이스 IP}
+sudo iptables -t nat -A PREROUTING -j DNAT --to {eth0 ip}
 sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 
 sudo nano /etc/rc.local 에 다음 내용 추가
