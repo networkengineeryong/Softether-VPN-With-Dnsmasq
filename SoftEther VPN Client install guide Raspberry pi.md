@@ -74,3 +74,51 @@ sudo systemctl start vpnclient
 </pre>
 
 ### 라즈베리 파이에 연결된 기기의 트래픽을 내보내야 할 때
+
+인터넷은 eth0, 기기는 eth1에 연결되어 있다고 가정한다
+
+1. eth1 static ip 설정
+<pre>
+<code>
+sudo nano /etc/dhcpcd.conf
+
+interface eth1
+static ip_address=192.168.224.1/30
+</code>
+</pre>
+2. Dnsmasq 설치
+<pre>
+<code>
+sudo apt install dnsmasq
+sudo systemctl enable dnsmasq
+sudo systemctl start dnsmasq
+</code>
+</pre>
+3. Dnsmasq 설정
+<pre>
+<code>
+sudo sh -c "cat /dev/null > /etc/dnsmasq.conf"
+echo 'interface=eth1
+dhcp-range=192.168.224.2,192.168.224.2,12h
+dhcp-option=option:router,192.168.224.1/30
+dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases' > ~/dnsmasq.conf
+sudo sh -c "cat ~/dnsmasq.conf > /etc/dnsmasq.conf"
+sudo rm ~/dnsmasq.conf
+</code>
+</pre>
+4. ipv4 포워드 설정
+<pre>
+<code>
+sudo sysctl -w net.ipv4.ip_forward=1
+</code>
+</pre>
+5. iptables 설정
+<pre>
+<code>
+sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+
+sudo nano /etc/rc.local 에 다음 내용 추가
+iptables-restore < /etc/iptables.ipv4.nat
+</code>
+</pre>
