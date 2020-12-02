@@ -1,8 +1,10 @@
 # SoftEther-VPN-with-DNSMASQ
 VPN : SoftEther VPN
+
 DHCP : DNSMASQUERADE
 
 SoftEther VPN Server: CentOS 7
+
 SoftEther VPN Client: Raspberrypi 5.4.51-v71+
 
 ### VPN Server install guide
