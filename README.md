@@ -1,4 +1,4 @@
-# Softether-VPN-With-Dnsmasq
+# SoftEther-VPN-with-DNSMASQ
 VPN : SoftEther VPN
 DHCP : DNSMASQUERADE
 
