@@ -72,3 +72,5 @@ sudo systemctl enable vpnclient
 sudo systemctl start vpnclient
 </code>
 </pre>
+
+### 라즈베리 파이에 연결된 기기의 트래픽을 내보내야 할 때
