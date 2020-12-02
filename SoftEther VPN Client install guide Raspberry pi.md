@@ -31,6 +31,18 @@ cd vpnclient
     /etc/hosts 파일에 vpnserver로 서버 ip를 지정해 놓으면 서버에 연결하는 커맨드다.
 <pre>
 <code>
+/etc/hosts
+127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+127.0.1.1               raspberrypi
+192.168.0.6     vpnserver
+</code>
+</pre>
+<pre>
+<code>
 cat /etc/hosts | grep vpnserver > ~/test
 sed -i 's/'vpnserver'/''/' ~/test
 (echo 2;echo ;echo ;echo AccountCreate client /server:"$(echo "$(cat ~/test | sed '/^$/d;s/[[:blank:]]//g'):443")" /hub:server /username:client /nicname:soft;echo AccountPasswordSet client /password:client /type:standard;echo AccountConnect client;echo AccountStartupSet client) | /home/$USER/vpnclient/vpncmd
