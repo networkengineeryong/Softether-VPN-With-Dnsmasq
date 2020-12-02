@@ -81,10 +81,8 @@ sudo systemctl start vpnclient
 1. eth1 static ip 설정
 <pre>
 <code>
-sudo nano /etc/dhcpcd.conf
-
-interface eth1
-static ip_address=192.168.224.1/30
+sudo sh -c "echo 'interface eth1
+static ip_address=192.168.224.1/30' >> /etc/dhcpcd.conf"
 </code>
 </pre>
 2. Dnsmasq 설치
