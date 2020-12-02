@@ -32,6 +32,9 @@ cd vpnclient
 4. vpn 클라이언트 계정 생성, 서버 연결하기
 
     /etc/hosts 파일에 vpnserver로 서버 ip를 지정해 놓으면 서버에 연결하는 커맨드다.
+
+    만약 hosts파일에 vpnserver가 없으면 계정이 생성되지 않는다.
+    
 <pre>
 <code>
 /etc/hosts
