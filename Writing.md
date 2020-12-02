@@ -2,7 +2,7 @@
 
 ### 스크립트가 정상적으로 실행되지 않습니다!
 
-# 기본 설치 (라즈베리 파이에 인터넷 연결 필요한 기기 없을 때)
+## 기본 설치 (라즈베리 파이에 인터넷 연결 필요한 기기 없을 때)
 <pre>
 <code>
 #!/bin/sh
@@ -36,7 +36,8 @@ sudo systemctl start vpnclient
 </code>
 </pre>
 
-# 라즈베리 파이에 인터넷 연결이 필요한 기기가 있을 때
+## 라즈베리 파이에 인터넷 연결이 필요한 기기가 연결되어 있을 때
+# (주의) 인터넷은 eth0, 기기는 eth1에 연결되어 있다고 가정하고 작성된 스크립트 입니다
 <pre>
 <code>
 #!/bin/sh
@@ -67,5 +68,16 @@ sudo mv ~/vpnservice /lib/systemd/system/vpnclient.service
 sudo systemctl daemon-reload
 sudo systemctl enable vpnclient
 sudo systemctl start vpnclient
+(echo y) | sudo apt install dnsmasq
+sudo systemctl enable dnsmasq
+sudo systemctl start dnsmasq
+sudo sh -c "cat /dev/null > /etc/dnsmasq.conf"
+echo 'interface=eth1
+dhcp-range=192.168.224.2,192.168.224.2,12h
+dhcp-option=option:router,192.168.224.1/30
+dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases' > /etc/dnsmasq.conf
+sudo sh -c "echo 'interface eth1
+static ip_address=192.168.224.1/30' >> /etc/dhcpcd.conf"
+
 </code>
 </pre>
