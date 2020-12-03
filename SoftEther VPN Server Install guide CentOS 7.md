@@ -1,7 +1,5 @@
 # VPN SERVER on CentOS 7
 
-## 모든 커맨드는 일반 유저 권한으로 입력합니다.
-
 1. yum update
 <pre>
 <code>
@@ -17,13 +15,13 @@ sudo yum update
 <pre>
 <code>
 wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
-sudo tar xvzf softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
-sudo rm -r softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
+tar xvzf softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
+rm softether-vpnserver-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
 cd vpnserver
 (echo 1; echo 1; echo 1) | make
 ./vpnserver start
 </code>
-</pre>
+</pre>  
 3. DNSMASQ 설치, 시작 프로그램 등록
 <pre>
 <code>
@@ -50,7 +48,7 @@ sudo systemctl start dnsmasq
 sudo sh -c "cat /dev/null > /etc/dnsmasq.conf"
 echo 'interface=tap_soft
 dhcp-range=172.16.0.2,172.16.3.254,12h
-dhcp-option=option:router,172.24.0.1/22
+dhcp-option=option:router,172.24.0.1
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases' > ~/dnsmasq.conf
 sudo sh -c "cat ~/dnsmasq.conf > /etc/dnsmasq.conf"
 sudo rm ~/dnsmasq.conf
@@ -118,3 +116,13 @@ firewall-cmd --zone=public --permanent --add-port=67/udp
 firewall-cmd --reload
 </code>
 </pre>
+10. MASQUERADE 설정
+<pre>
+<code>
+sudo iptables -t nat -A PREROUTING -o 
+sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+
+sudo nano /etc/rc.local 에 다음 내용 추가
+iptables-restore < /etc/iptables.ipv4.nat
+</code>
+<pre>
