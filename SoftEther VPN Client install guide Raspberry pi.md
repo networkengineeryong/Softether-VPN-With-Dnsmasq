@@ -15,7 +15,8 @@ OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 202
 <https://www.softether-download.com/en.aspx?product=softether>
 
 2. Client 다운로드 후 압축 해제
-*** 라즈베리 파이 VPN 다운로드 경로: /usr/local/ ***
+
+__라즈베리 파이 VPN 다운로드 경로: /usr/local/__
 <pre>
 <code>
 wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
