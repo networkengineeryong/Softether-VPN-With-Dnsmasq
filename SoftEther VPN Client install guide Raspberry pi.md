@@ -23,7 +23,7 @@ OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 202
 <code>
 wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 tar xvzf softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
-rm softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
+rm -f softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 
 </code>
 </pre>
@@ -57,6 +57,9 @@ ff02::2         ip6-allrouters
 192.168.0.6     vpnserver
 </code>
 </pre>
+5. VPN Client 기본 설정
+
+    명령어 입력 시 가상 랜카드 soft를 생성, id: client pw: client 계정이 생성되고, 서버와 연결(/etc/hosts의 vpnserver ip로 연결됨), 자동연결 설정이 진행된다.
 <pre>
 <code>
 ./vpnclient start
@@ -71,8 +74,11 @@ rm  get-dns-ip-addr
 </code>
 </pre>
 
+### Client 수동 설정 방법
+<https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/SoftEther%20VPN%20Client%20config%20guide.md>
+
 # 일반 보관함일 경우 (Default gateway delete)
-5. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
+6. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
 <pre>
 <code>  
 echo '#!/bin/sh
@@ -97,7 +103,7 @@ systemctl start vpnclient
 __일반 보관함은 여기까지만 설정하면 된다__
 
 # 아파트 모델일 경우
-5. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
+6. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
 <pre>
 <code>  
 echo '#!/bin/sh
