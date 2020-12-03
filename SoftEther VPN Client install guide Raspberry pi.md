@@ -2,6 +2,8 @@
 
 # 모든 커맨드는 root 권한으로 입력합니다..
 
+# 설치는 반드시 /usr/local 경로에서 시작해야 합니다.. 
+
 1. apt update
 <pre>
 <code>
