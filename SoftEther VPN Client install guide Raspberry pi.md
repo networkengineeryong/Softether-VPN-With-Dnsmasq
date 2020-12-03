@@ -137,10 +137,12 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 __카드리더기가 eth1으로 연결되어 있다 가정하고 작성된 코드 입니다__
 
-1. eth1 static ip 설정
+__만약 eth1이 아닌 다른 인터페이스로 연결 되어 있다면 "인터페이스 설정" 이라고 강조되어 있는 부분의 코드를 수정해서 사용해야 합니다__
+
+1. eth1 static ip 설정 __인터페이스 설정__
 <pre>
 <code>
-echo 'interface 'eth1'
+echo 'interface eth1
 static ip_address=192.168.224.1/30' >> /etc/dhcpcd.conf
 </code>
 </pre>
@@ -152,11 +154,11 @@ systemctl enable dnsmasq
 systemctl start dnsmasq
 </code>
 </pre>
-3. Dnsmasq 설정
+3. Dnsmasq 설정 __인터페이스 설정__
 <pre>
 <code>
 echo '
-interface='eth1'
+interface=eth1
 dhcp-range=192.168.224.2,192.168.224.2,12h
 dhcp-option=option:router,192.168.224.1
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
