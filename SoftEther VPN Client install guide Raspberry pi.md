@@ -21,6 +21,7 @@ OS Version : Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 202
 wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/32bit_-_ARM_EABI/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 tar xvzf softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 rm softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
+
 </code>
 </pre>
 3. vpnclient 실행, make (라이선스 동의)
@@ -28,6 +29,7 @@ rm softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz
 <code>
 cd vpnclient
 (echo 1; echo 1; echo 1) | make
+
 </code>
 </pre>
 4. vpn 클라이언트 계정 생성, 서버 연결하기
@@ -54,10 +56,15 @@ ff02::2         ip6-allrouters
 </pre>
 <pre>
 <code>
+./vpnclient start
+./vpnclient stop
+sed -i 's/'"$bool AllowRemoteConfig false"'/'"$bool AllowRemoteConfig true"'/' vpn_client.config
+./vpnclient start
 cat /etc/hosts | grep vpnserver > get-dns-ip-addr
 sed -i 's/'vpnserver'/''/' get-dns-ip-addr
-(echo 2;echo ;echo ;echo AccountCreate client /server:"$(echo "$(cat ~/test | sed '/^$/d;s/[[:blank:]]//g'):443")" /hub:server /username:client /nicname:soft;echo AccountPasswordSet client /password:client /type:standard;echo AccountConnect client;echo AccountStartupSet client) | /usr/local/vpnclient/vpncmd
+(echo 2;echo ;echo ;echo niccreate soft; echo AccountCreate client /server:"$(echo "$(cat /usr/local/vpnclient/get-dns-ip-addr | sed '/^$/d;s/[[:blank:]]//g'):443")" /hub:server /username:client /nicname:soft;echo AccountPasswordSet client /password:client /type:standard;echo AccountConnect client;echo AccountStartupSet client) | /usr/local/vpnclient/vpncmd
 rm  get-dns-ip-addr
+
 </code>
 </pre>
 
@@ -105,6 +112,7 @@ WantedBy=multi-user.target' > /lib/systemd/system/vpnclient.service
 systemctl daemon-reload
 systemctl enable vpnclient
 systemctl start vpnclient
+
 </code>
 </pre>
 
