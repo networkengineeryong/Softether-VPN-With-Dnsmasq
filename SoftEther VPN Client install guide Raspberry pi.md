@@ -1,6 +1,6 @@
 # VPN Client on Raspberry pi
 
-# 모든 커맨드는 root 권한으로 입력합니다..
+# 모든 커맨드는 root 계정에서 입력합니다..
 
 # 설치는 반드시 /usr/local 경로에서 시작해야 합니다.. 
 
