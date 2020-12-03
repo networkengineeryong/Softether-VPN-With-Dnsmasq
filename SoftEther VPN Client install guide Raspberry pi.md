@@ -117,7 +117,7 @@ systemctl start vpnclient
 </code>
 </pre>
 
-## 카드 리더기 인터페이스 정보 조회 방법
+##   카드 리더기 인터페이스 정보 조회 방법
 라즈베리 파이에 유선 랜카드를 장착해 카드 리더기를 연결하게 되면
 
 네트워크 인터페이스가 하나 추가 되는데, 이 인터페이스가 뭔지 모르겠다면 연결하기 전, 후 ifconfig커맨드로 정보를 비교한다.
@@ -135,10 +135,12 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 </code>
 </pre>
 
+__카드리더기가 eth1으로 연결되어 있다 가정하고 작성된 코드 입니다__
+
 1. eth1 static ip 설정
 <pre>
 <code>
-echo 'interface eth1
+echo 'interface 'eth1'
 static ip_address=192.168.224.1/30' >> /etc/dhcpcd.conf
 </code>
 </pre>
@@ -154,7 +156,7 @@ systemctl start dnsmasq
 <pre>
 <code>
 echo '
-interface=eth1
+interface='eth1'
 dhcp-range=192.168.224.2,192.168.224.2,12h
 dhcp-option=option:router,192.168.224.1
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
