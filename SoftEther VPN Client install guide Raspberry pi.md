@@ -92,7 +92,7 @@ systemctl enable vpnclient
 systemctl start vpnclient
 </code>
 </pre>
-*** 일반 보관함은 여기까지만 설정하면 된다 ***
+__일반 보관함은 여기까지만 설정하면 된다__
 
 # 아파트 모델일 경우
 5. vpn 클라이언트 서비스에 등록, 시작 프로그램 등록
@@ -117,24 +117,7 @@ systemctl start vpnclient
 </code>
 </pre>
 
-인터넷으로 나가는 로컬 네트워크에 연결된 인터페이스는 eth0, 카드 리더기와 연결된 인터페이스는 eth1 이라고 가정하고 작성한다.
-
-이 두 인터페이스는 일반적으로 eth0(local), eth1(card)으로 연결되지만 유동성이 있기 때문에 꼭 현장에서 확인해야 한다.
-
-### 로컬 네트워크 정보 조회 방법
-로컬 네트워크의 인터페이스를 확인하기 전 라즈베리 파이에서 인터넷이 되는지 확인해야 한다.
-
-로컬 네트워크에 연결된 인터페이스를 확인하려면 route 명령으로 default로 설정되어 있는 인터페이스를 보면 된다. (이 설정에선 vpn 인터페이스는 예외)
-<pre>
-<code>
-[root@localhost]# route
-default         172.25.0.1      0.0.0.0         UG    202    0        0 eth0
-172.25.0.0      0.0.0.0         255.255.0.0     U     202    0        0 eth0
-</code>
-</pre>
-예를 들어 위와 같이 설정되어 있다면 eth0번이 로컬 네트워크와 연결되어 있는 것이다.
-
-### 카드 리더기 인터페이스 정보 조회 방법
+## 카드 리더기 인터페이스 정보 조회 방법
 라즈베리 파이에 유선 랜카드를 장착해 카드 리더기를 연결하게 되면
 
 네트워크 인터페이스가 하나 추가 되는데, 이 인터페이스가 뭔지 모르겠다면 연결하기 전, 후 ifconfig커맨드로 정보를 비교한다.
@@ -193,7 +176,7 @@ iptables-save > /etc/iptables.ipv4.nat
 </pre>
 6. iptables 설정 부팅시 불러오게 설정
 
-/etc/rc.local 에 다음 내용 추가
+    /etc/rc.local 에 다음 내용 추가
 <pre>
 <code>
 iptables-restore < /etc/iptables.ipv4.nat
