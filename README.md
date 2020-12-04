@@ -1,7 +1,7 @@
 # SoftEther-VPN-with-DNSMASQ
 VPN : SoftEther VPN
 
-DHCP : DNSMASQUERADE
+DHCP : DNSMASQ
 
 SoftEther VPN Server: CentOS 7
 
