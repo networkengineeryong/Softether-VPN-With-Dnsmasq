@@ -4,4 +4,6 @@
 
 # [카드 리더기가 없는 일반 보관함 서버에 VPN 서버 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/1.%20SoftEther%20VPN%20Server%20Without%20CardReader.md)
 
-# [라즈베리 파이에 VPN 클라이언트 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/1.%20SoftEther%20VPN%20Client%20On%20Raspberry%20pi.md)
+# [카드 리더기를 연결하지 않는 라즈베리 파이에 VPN 클라이언트 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/1.%20SoftEther%20VPN%20Client%20On%20Raspberry%20pi.md)
+
+# [카드 리더기를 연결하는 라즈베리 파이에 VPN 클라이언트 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/1.%20SoftEther%20VPN%20Client%20On%20Raspberry%20pi.md)
