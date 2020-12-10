@@ -119,13 +119,13 @@ systemctl start dnsmasq</code>
 * ## __dnsmasq.conf 파일 수정__ 
 
     * __카드 리더기가 있는 아파트의 경우 한 VPN 네트워크에 많은 호스트가 필요없다__
-    * IP 대역대를 __172.25.1.0/28__ 로 설정해 __14__ 개의 호스트를 갖게끔 설정한다
+    * IP 대역대를 __172.25.1.0/27__ 로 설정해 __30__ 개의 호스트를 갖게끔 설정한다
 
     * VPN 클라이언트에게 게이트웨이 정보를 넘겨준다
     * __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
 <pre>
 <code>interface=tap_soft
-dhcp-range=tap_soft,172.25.1.2,172.25.1.14,12h
+dhcp-range=tap_soft,172.25.1.2,172.25.1.30,12h
 dhcp-option=tap_soft,3,172.25.1.1</code>
 </pre>
 
@@ -151,7 +151,7 @@ start)
 $DAEMON start
 touch $LOCK
 sleep 1
-/sbin/ifconfig tap_soft $TAP_ADDR/28
+/sbin/ifconfig tap_soft $TAP_ADDR/27
 ;;
 stop)
 $DAEMON stop
@@ -162,7 +162,7 @@ $DAEMON stop
 sleep 3
 $DAEMON start
 sleep 1
-/sbin/ifconfig tap_soft $TAP_ADDR/28
+/sbin/ifconfig tap_soft $TAP_ADDR/27
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"

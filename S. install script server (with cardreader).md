@@ -17,7 +17,7 @@ systemctl start dnsmasq
 (echo 1; echo ;echo ;echo HubCreate server /password:server;echo Hub server;echo SecurenatDisable; echo Natdisable; echo dhcpdisable;echo usercreate client /group: /realname:client /note: ;echo UserPasswordSet client /PASSWORD:client;echo BridgeCreate server /DEVICE:soft /TAP:yes) | /usr/local/vpnserver/vpncmd
 echo '
 interface=tap_soft
-dhcp-range=172.25.1.2,172.25.1.14,12h
+dhcp-range=172.25.1.2,172.25.1.30,12h
 dhcp-option=option:router,172.25.1.1
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases
 ' >> /etc/dnsmasq.conf
@@ -34,7 +34,7 @@ start)
 $DAEMON start
 touch $LOCK
 sleep 1
-/sbin/ifconfig tap_soft $TAP_ADDR/28
+/sbin/ifconfig tap_soft $TAP_ADDR/27
 ;;
 stop)
 $DAEMON stop
@@ -45,7 +45,7 @@ $DAEMON stop
 sleep 3
 $DAEMON start
 sleep 1
-/sbin/ifconfig tap_soft $TAP_ADDR/28
+/sbin/ifconfig tap_soft $TAP_ADDR/27
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"
