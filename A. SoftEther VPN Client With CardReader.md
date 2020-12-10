@@ -234,6 +234,13 @@ dhcp-option=option:router,172.26.1.1</code>
 
     __/etc/hosts__ 파일에 __vpnserver__ 의 __IP__ 를 __현장 서버 IP__ 로 변경 혹은 추가해 주면 됩니다 ([참고](#hosts-파일에-vpnserver-ip-지정))
 
+* 게이트웨이 확인
+    * vpn_soft로 default 게이트웨이가 추가 되어야 한다
+    <pre>
+    <code>Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+    default         172.25.1.1      0.0.0.0         UG    0      0        0 vpn_soft</code></pre>
+
+
 * 카드 단말기 아이피 할당 체크
     <pre>
     <code>vi /var/lib/misc/dnsmasq.leases</code></pre>
