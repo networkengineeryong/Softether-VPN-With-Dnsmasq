@@ -234,12 +234,23 @@ dhcp-option=option:router,172.26.1.1</code>
 
     __/etc/hosts__ 파일에 __vpnserver__ 의 __IP__ 를 __현장 서버 IP__ 로 변경 혹은 추가해 주면 됩니다 ([참고](#hosts-파일에-vpnserver-ip-지정))
 
-* 게이트웨이 확인
+* VPN 연결 확인
+    * vpn_soft에 ip가 할당되어야 한다
+    <pre>
+    <code>[root@raspberrypi]# ifconfig
+    vpn_soft: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.25.1.10  netmask 255.255.255.240  broadcast 172.25.1.15
+        inet6 fe80::5c5f:6cff:fe2c:abb9  prefixlen 64  scopeid 0x20<link>
+        ether 5e:5f:6c:2c:ab:b9  txqueuelen 1000  (Ethernet)
+        RX packets 4058  bytes 288117 (281.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 4897  bytes 352284 (344.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
     * vpn_soft로 default 게이트웨이가 추가 되어야 한다
     <pre>
-    <code>Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+    <code>[root@raspberrypi]# route
+    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
     default         172.25.1.1      0.0.0.0         UG    0      0        0 vpn_soft</code></pre>
-
 
 * 카드 단말기 아이피 할당 체크
     <pre>
