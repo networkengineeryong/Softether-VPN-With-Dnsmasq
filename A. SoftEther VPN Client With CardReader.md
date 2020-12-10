@@ -218,9 +218,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
     현재 사용중인 AP모드에 필요한 규칙이 있는 파일입니다
 
     파일 하단에 __iptables -t nat -A POSTROUTING -o vpn_soft -j MASQUERADE__ 를 추가하면 됩니다
-<pre>
-<code>iptables -t nat -A POSTROUTING -o vpn_soft -j MASQUERADE</code>
-</pre>
+
 
 ## __현장 설치 메뉴얼__
 
