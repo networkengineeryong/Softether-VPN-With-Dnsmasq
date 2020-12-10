@@ -186,7 +186,7 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
     만약 eth1이 아닌 다른 인터페이스로 연결 되어 있다면 (인터페이스 설정) 이라고 강조되어 있는 부분의 코드를 수정해서 사용해야 합니다
 
-__만약 DNSMASQ가 설치되어 있지 않다면__
+* __만약 DNSMASQ가 설치되어 있지 않다면 설치한다__
 <pre>
 <code>yum -y install DNSMASQ
 systemctl enable DNSMASQ
