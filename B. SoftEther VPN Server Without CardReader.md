@@ -112,7 +112,7 @@ systemctl start DNSMASQ</code>
     * __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
 <pre>
 <code>interface=tap_soft
-dhcp-range=tap_soft,172.25.1.2,172.25.1.14,12h
+dhcp-range=tap_soft,172.25.0.2,172.25.3.254,12h
 dhcp-option=tap_soft,3,1.1.1.1</code>
 </pre>
 
