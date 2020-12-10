@@ -103,13 +103,13 @@ systemctl enable DNSMASQ
 systemctl start DNSMASQ</code>
 </pre>
 
-## __dnsmasq.conf 파일 수정__
+* ## __dnsmasq.conf 파일 수정__
 
-* __일반 보관함의 경우 한 VPN 네트워크에 많은 호스트가 필요하다__
+    * __일반 보관함의 경우 한 VPN 네트워크에 많은 호스트가 필요하다__
     * IP 대역대를 __172.25.0.0/22__ 로 설정해 __1022__ 개의 호스트를 갖게끔 설정한다
 
-* VPN 클라이언트에게 게이트웨이 정보를 넘겨준다
-* __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
+    * VPN 클라이언트에게 게이트웨이 정보를 넘겨준다
+    * __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
 <pre>
 <code>interface=tap_soft
 dhcp-range=172.25.1.2,172.25.1.14,12h

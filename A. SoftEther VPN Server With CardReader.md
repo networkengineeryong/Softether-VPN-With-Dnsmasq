@@ -96,20 +96,20 @@ make</code>
 
 ## __DNSMASQ__ 설정
 
-* 만약 __DNSMASQ__ 가 설치되어 있지 않다면
+* 만약 __DNSMASQ__ 가 설치되어 있지 않다면 설치 한다
 <pre>
 <code>yum -y install DNSMASQ
 systemctl enable DNSMASQ
 systemctl start DNSMASQ</code>
 </pre>
 
-## __dnsmasq.conf 파일 수정__
+* ## __dnsmasq.conf 파일 수정__
 
-* __카드 리더기가 있는 아파트의 경우 한 VPN 네트워크에 많은 호스트가 필요없다__
+    * __카드 리더기가 있는 아파트의 경우 한 VPN 네트워크에 많은 호스트가 필요없다__
     * IP 대역대를 __172.25.1.0/28__ 로 설정해 __13__ 개의 호스트를 갖게끔 설정한다
 
-* VPN 클라이언트에게 게이트웨이 정보를 넘겨준다
-* __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
+    * VPN 클라이언트에게 게이트웨이 정보를 넘겨준다
+    * __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
 <pre>
 <code>interface=tap_soft
 dhcp-range=172.25.1.2,172.25.1.14,12h
