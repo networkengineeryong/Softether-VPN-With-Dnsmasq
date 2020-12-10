@@ -16,7 +16,7 @@
 
 [2. SoftEther VPN Server 설치](#SoftEther-VPN-Server-설치)
 
-[3. DNSMASQ 설정](#__DNSMASQ__-설정)
+[3. DNSMASQ 설정](#DNSMASQ-설정)
 
 [4. 시스템 설정](#시스템-설정)
 - - -
