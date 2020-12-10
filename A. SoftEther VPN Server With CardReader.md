@@ -5,7 +5,7 @@
 
 * __SoftEther VPN Server 설치 경로: /usr/local__
 
-* 아파트 모델 보관함의 경우 __Default 게이트웨이가 VPN으로__ 설정되어야 카드 리더기 트래픽이 인터넷으로 나갈 수 있습니다
+*  __Default 게이트웨이가 VPN으로__ 설정되어야 카드 리더기 트래픽이 인터넷으로 나갈 수 있습니다
 
     * 해당 설정은 __DNSMASQ__ 설정 부분에 있으니 참고해 주세요
 
@@ -18,7 +18,11 @@
 
 [3. DNSMASQ 설정](#DNSMASQ-설정)
 
-[4. 시스템 설정](#시스템-설정)
+[4. 서비스 파일 생성](#서비스-파일-생성)
+
+[5. 포워딩 설정](#포워딩-설정)
+
+[6. 방화벽 설정](#방화벽-설정)
 - - -
 &nbsp;
 ## __사전 설정__
@@ -77,30 +81,39 @@ make</code>
 
 3. 아무것도 입력하지 않고 엔터
 
-4. VPN Server> HubCreate server /password:server (server이름의 허브 생성, 비밀번호 server)
+VPN Server> HubCreate server /password:server
+# server이름의 허브 생성, 비밀번호 server
 
-5. VPN Server/server> Hub server (허브 server 설정으로 진입)
+VPN Server/server> Hub server 
+# 허브 server 설정으로 진입
 
-6. VPN Server/server> SecurenatDisable (Securenat 비활성화)
+VPN Server/server> SecurenatDisable
+# Securenat 비활성화
 
-7. VPN Server/server> NatDisable (NAT 비활성화)
+VPN Server/server> NatDisable 
+# NAT 비활성화
 
-8. VPN Server/server> DhcpDisable (DHCP 비활성화)
+VPN Server/server> DhcpDisable 
+# DHCP 비활성화
 
-9. VPN Server/server> UserCreate client /group: /realname:client /note:  (client 이름의 유저 생성)
+VPN Server/server> UserCreate client /group: /realname:client /note: 
+# client 이름의 유저 생성
 
-10. VPN Server/server> UserPasswordSet /PASSWORD:client  (유저 비밀번호 설정)
+VPN Server/server> UserPasswordSet /PASSWORD:client  
+# 유저 비밀번호 설정
 
-11. VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes (TAP Device 생성)</code>
+VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes 
+# TAP Device 생성
+</code>
 </pre>
 
 ## __DNSMASQ__ 설정
 
 * 만약 __DNSMASQ__ 가 설치되어 있지 않다면 설치 합니다
 <pre>
-<code>yum -y install DNSMASQ
-systemctl enable DNSMASQ
-systemctl start DNSMASQ</code>
+<code>yum -y install dnsmasq
+systemctl enable dnsmasq
+systemctl start dnsmasq</code>
 </pre>
 
 * ## __dnsmasq.conf 파일 수정__ 
@@ -116,11 +129,11 @@ dhcp-range=tap_soft,172.25.1.2,172.25.1.14,12h
 dhcp-option=tap_soft,3,172.25.1.1</code>
 </pre>
 
-## __시스템 설정__
+## __서비스 파일 생성__
 
 1. __/etc/init.d__ 에 __vpnserver__ 파일 생성
 <pre>
-<code>[root@localhost init.d]# touch vpnserver</code>
+<code>[root@localhost init.d]# vi /etc/init.d/vpnserver</code>
 </pre>
 
 2. __vpnserver__ 파일에 다음 내용 붙여넣기
@@ -173,15 +186,19 @@ chkconfig --add vpnserver</code>
 4. daemon-reload, start
 <pre>
 <code>systemctl daemon-reload
-systemctl start vpnserver.service</code>
+systemctl start vpnserver</code>
 </pre>
 
-5. ipv4 포워딩 설정
+## __포워딩 설정__
+
+* ipv4 포워딩 설정
 <pre>
 <code>sysctl -w net.ipv4.ip_forward=1</code>
 </pre>
 
-6. 포트 오픈, MASQUERADE 설정
+## __방화벽 설정__
+
+* 포트 오픈, MASQUERADE 설정
 
     * SoftEther VPN 사용 포트: 443/TCP
 
