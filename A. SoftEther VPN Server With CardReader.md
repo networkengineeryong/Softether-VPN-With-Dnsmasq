@@ -96,7 +96,7 @@ make</code>
 
 ## __DNSMASQ__ 설정
 
-* 만약 __DNSMASQ__ 가 설치되어 있지 않다면 설치 한다
+* 만약 __DNSMASQ__ 가 설치되어 있지 않다면 설치 합니다
 <pre>
 <code>yum -y install DNSMASQ
 systemctl enable DNSMASQ
