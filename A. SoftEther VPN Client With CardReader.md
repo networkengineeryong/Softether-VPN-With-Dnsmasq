@@ -122,9 +122,7 @@ sed -i 's/'"$bool AllowRemoteConfig false"'/'"$bool AllowRemoteConfig true"'/' v
 
 ## __DHCP timeout 설정__
 
-* 네트워크 문제로 VPN Server와 연결이 끊어졌을 때
-
-* 다시 연결을 시도하는데 기본으로 60초 동안 시도하도록 되어있다
+* 네트워크 문제로 VPN Server와 연결이 끊어졌을 때 다시 연결을 시도하는데 기본으로 60초 동안 시도하도록 되어있다
 
 * 설정을 86400초 (60일)로 변경해서 네트워크 문제가 해결된 후에도 VPN Server와 연결을 맺도록 설정 한다
 
