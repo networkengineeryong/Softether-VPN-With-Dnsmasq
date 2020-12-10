@@ -36,7 +36,7 @@ ExecStart=/usr/local/vpnclient/vpnclient start
 ExecStartPost=/bin/sleep 2
 ExecStartPost=/sbin/dhclient vpn_soft
 ExecStop=/usr/local/vpnclient/vpnclient stop
-TimeoutSec=86400
+TimeoutSec=1728000
 [Install]
 WantedBy=multi-user.target' > /lib/systemd/system/vpnclient.service
 systemctl daemon-reload
@@ -74,7 +74,7 @@ ExecStart=/usr/local/vpnclient/vpnclient start
 ExecStartPost=/bin/sleep 2
 ExecStartPost=/sbin/dhclient vpn_soft
 ExecStop=/usr/local/vpnclient/vpnclient stop
-TimeoutSec=86400
+TimeoutSec=1728000
 [Install]
 WantedBy=multi-user.target' > /lib/systemd/system/vpnclient.service
 systemctl enable vpnclient
@@ -88,7 +88,7 @@ dhcp-option=option:router,172.26.1.1
 dhcp-leasefile=/var/lib/dnsmasq/dnsmasq.leases' > /etc/dnsmasq.conf
 echo 'interface eth1
 static ip_address=172.26.1.1/30' >> /etc/dhcpcd.conf
-sed -i 's/'"#timeout 60;"'/'"timeout 86400;"'/' /etc/dhcp/dhclient.conf
+sed -i 's/'"#timeout 60;"'/'"timeout 1728000;"'/' /etc/dhcp/dhclient.conf
 sysctl -w net.ipv4.ip_forward=1
 echo '
 iptables -t nat -A POSTROUTING -o vpn_soft -j MASQUERADE' >> /etc/iptables-hs

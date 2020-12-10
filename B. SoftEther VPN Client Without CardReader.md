@@ -114,11 +114,11 @@ sed -i 's/'"$bool AllowRemoteConfig false"'/'"$bool AllowRemoteConfig true"'/' v
 
 * 네트워크 문제로 VPN Server와 연결이 끊어졌을 때 다시 연결을 시도하는데 기본으로 60초 동안 시도하도록 되어있다
 
-* 설정을 86400초로 변경해서 네트워크 문제가 해결된 후에도 VPN Server와 연결을 맺도록 설정 한다
+* 설정을 1728000초(20일)로 변경해서 네트워크 문제가 해결된 후에도 VPN Server와 연결을 맺도록 설정 한다
 
 * __/etc/dhcp/dhclient.conf__ 파일에 #timeout 60; 주석해제 후 값 변경
 <pre>
-<code>sed -i 's/'"#timeout 60;"'/'"timeout 86400;"'/' /etc/dhcp/dhclient.conf</code>
+<code>sed -i 's/'"#timeout 60;"'/'"timeout 1728000;"'/' /etc/dhcp/dhclient.conf</code>
 </pre>
 
 ## __서비스 등록__
@@ -137,7 +137,7 @@ ExecStart=/usr/local/vpnclient/vpnclient start
 ExecStartPost=/bin/sleep 2
 ExecStartPost=/sbin/dhclient vpn_soft
 ExecStop=/usr/local/vpnclient/vpnclient stop
-TimeoutSec=86400
+TimeoutSec=1728000
 [Install]
 WantedBy=multi-user.target</code>
 </pre>
