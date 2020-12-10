@@ -2,7 +2,7 @@
 
 ## [VPN 서버 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/A.%20SoftEther%20VPN%20Server%20With%20CardReader.md)
 
-## [라즈베리 파이에 VPN 클라이언트 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/A.SoftEther%20VPN%20Client%20With%20CardReader.md)
+## [라즈베리 파이에 VPN 클라이언트 설치](https://github.com/networknegineeryong/Softether-VPN-With-Dnsmasq/blob/main/A.%20SoftEther%20VPN%20Client%20With%20CardReader.md)
 
 &nbsp;
 
