@@ -202,8 +202,8 @@ static ip_address=172.26.1.1/30</code>
     __/etc/dnsmasq.conf__ 파일 하단에 다음 내용 추가
 <pre>
 <code>interface=eth1
-dhcp-range=172.26.1.2,172.26.1.2,12h
-dhcp-option=option:router,172.26.1.1</code>
+dhcp-range=eth1,172.26.1.2,172.26.1.2,12h
+dhcp-option=eth1,3,172.26.1.1</code>
 </pre>
 
 ## __시스템 설정__
