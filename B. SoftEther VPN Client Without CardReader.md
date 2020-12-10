@@ -12,7 +12,7 @@
 
 [2. SoftEther VPN Client 설치](#softether-vpn-client-설치)
 
-[3. /etc/hosts 파일에 vpnserver ip 지정](#hosts-파일에-vpnserver-ip-지정)
+[3. /etc/hosts 파일에 vpnserver ip 지정](#hosts-파일에-vpnserver-ip-지정) 
 
 [4. SoftEther VPN Client 기본 설정](#softether-vpn-client-기본-설정)
 

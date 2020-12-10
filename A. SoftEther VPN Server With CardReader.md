@@ -103,7 +103,7 @@ systemctl enable DNSMASQ
 systemctl start DNSMASQ</code>
 </pre>
 
-* ## __dnsmasq.conf 파일 수정__
+* ## __dnsmasq.conf 파일 수정__ 
 
     * __카드 리더기가 있는 아파트의 경우 한 VPN 네트워크에 많은 호스트가 필요없다__
     * IP 대역대를 __172.25.1.0/28__ 로 설정해 __13__ 개의 호스트를 갖게끔 설정한다

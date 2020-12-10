@@ -224,7 +224,7 @@ dhcp-option=option:router,172.26.1.1</code>
 
 ## __현장 설치 메뉴얼__
 
-* /etc/hosts 파일에 vpnserver ip 지정
+* /etc/hosts 파일에 vpnserver ip 지정 
 
     사무실에서 기본 설정을 마친 라즈베리 파이를 현장에 설치 후 (랜선 연결 까지 완료 후)
 
