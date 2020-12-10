@@ -108,12 +108,12 @@ systemctl start DNSMASQ</code>
     * __일반 보관함의 경우 한 VPN 네트워크에 많은 호스트가 필요하다__
     * IP 대역대를 __172.25.0.0/22__ 로 설정해 __1022__ 개의 호스트를 갖게끔 설정한다
 
-    * VPN 클라이언트에게 게이트웨이 정보를 넘겨준다
+    * VPN 클라이언트에게 게이트웨이 정보를 넘겨주지 않아야 한다 (잘못된 값 입력)
     * __/etc/dnsmasq.conf 파일 하단에 다음 내용 추가__
 <pre>
 <code>interface=tap_soft
 dhcp-range=tap_soft,172.25.1.2,172.25.1.14,12h
-dhcp-option=tap_soft,3,172.25.1.1</code>
+dhcp-option=tap_soft,3,1.1.1.1</code>
 </pre>
 
 ## __시스템 설정__
