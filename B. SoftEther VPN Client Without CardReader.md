@@ -10,7 +10,8 @@
 * vpn_soft 인터페이스로 디폴트 게이트웨이가 생성되지 않았는지 확인해주세요
 
 <pre>
-<code>default         router.asus.com 0.0.0.0         UG    202    0        0 eth0
+<code>[root@raspberrypi]# route
+default         router.asus.com 0.0.0.0         UG    202    0        0 eth0
 172.25.1.0      0.0.0.0         255.255.255.240 U     0      0        0 vpn_soft
 192.168.0.0     0.0.0.0         255.255.255.0   U     202    0        0 eth0</code></pre>
 
