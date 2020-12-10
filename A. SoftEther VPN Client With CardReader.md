@@ -265,5 +265,5 @@ dhcp-option=eth1,3,172.26.1.1</code>
 
     <pre>
     <code>#interface=eth1
-    #dhcp-range=172.26.1.2,172.26.1.2,12h
-    #dhcp-option=option:router,172.26.1.1</code></pre>
+    #dhcp-range=eth1,172.26.1.2,172.26.1.2,12h
+    #dhcp-option=eth1,3,172.26.1.1</code></pre>
