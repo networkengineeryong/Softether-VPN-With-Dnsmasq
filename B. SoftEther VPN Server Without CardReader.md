@@ -157,9 +157,9 @@ exit 1
 esac
 exit 0</code>
 </pre>
-* __DAEMON=__ VPN Server 설치 경로
+* __DAEMON=__ VPN Server 설치 경로 입력란
 
-* __TAP_ADDR=__ TAP Device의 IP
+* __TAP_ADDR=__ TAP Device의 IP 입력란
 
 &nbsp;
 
