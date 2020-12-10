@@ -101,7 +101,7 @@ sed -i 's/'"$bool AllowRemoteConfig false"'/'"$bool AllowRemoteConfig true"'/' v
 
 4. VPN Client> NicCreate soft [가상 랜카드 생성 {실제 생성되는 인터페이스 = vpn_soft}]
 
-5. VPN Client> AccountCreate client /server:vpnserver:443 /hub:server /username:client /nicname:soft [연결 계정 설정 {계정명, 서버IP, 유저명, 가상 랜카드 명}]
+5. VPN Client> AccountCreate client /server:vpnserver:443 /hub:server /username:client /nicname:soft [연결 계정 설정 {계정명, 서버IP, 허브명, 유저명, 가상 랜카드 명}]
 
 6. VPN Client> AccountPasswordSet client /password:client /type:standard [유저 비밀번호 설정 {서버에 설정된 비밀번호와 같아야 함}]
 
