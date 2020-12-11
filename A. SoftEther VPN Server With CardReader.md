@@ -108,6 +108,14 @@ VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes
 </pre>
 
 ## __DNSMASQ__ 설정
+   * 만약 DNSMASQ가 설치되어 있지 않다면 설치한다.
+   <pre>
+   <code>yum -y install dnsmasq
+   systemctl enable dnsmasq
+   systemctl start dnsmasq</code></pre>
+   
+   &nbsp;
+   
    * __카드 리더기가 있는 아파트의 경우 한 VPN 네트워크에 많은 호스트가 필요없다__
    * IP 대역대를 __172.25.1.0/27__ 로 설정해 __30__ 개의 호스트를 갖게끔 설정한다
 
