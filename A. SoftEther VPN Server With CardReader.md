@@ -99,7 +99,7 @@ VPN Server/server> DhcpDisable
 VPN Server/server> UserCreate client /group: /realname:client /note: 
 # client 이름의 유저 생성
 
-VPN Server/server> UserPasswordSet /PASSWORD:client  
+VPN Server/server> UserPasswordSet client /PASSWORD:client  
 # 유저 비밀번호 설정
 
 VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes 
@@ -108,10 +108,8 @@ VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes
 </pre>
 
 ## __DNSMASQ__ 설정
-   * 만약 DNSMASQ가 설치되어 있지 않다면 설치한다.
    <pre>
-   <code>yum -y install dnsmasq
-   systemctl enable dnsmasq
+   <code>systemctl enable dnsmasq
    systemctl start dnsmasq</code></pre>
    
    &nbsp;
