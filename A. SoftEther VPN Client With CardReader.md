@@ -187,13 +187,6 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
     만약 eth1이 아닌 다른 인터페이스로 연결 되어 있다면 (인터페이스 설정) 이라고 강조되어 있는 부분의 코드를 수정해서 사용해야 합니다
 
-* __만약 DNSMASQ가 설치되어 있지 않다면 설치합니다__
-<pre>
-<code>yum -y install dnsmasq
-systemctl enable dnsmasq
-systemctl start dnsmasq</code>
-</pre>
-
 1. eth1 static ip 설정  __(인터페이스 설정)__
 
     __/etc/dhcpcd.conf__ 파일 하단에 다음 내용 추가
