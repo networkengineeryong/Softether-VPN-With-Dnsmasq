@@ -99,7 +99,7 @@ VPN Server/server> DhcpDisable
 VPN Server/server> UserCreate client /group: /realname:client /note:  
 # client 이름의 유저 생성
 
-VPN Server/server> UserPasswordSet /PASSWORD:client
+VPN Server/server> UserPasswordSet client /PASSWORD:client
 # 유저 비밀번호 설정
 
 VPN Server/server> BridgeCreate server /DEVICE:soft /TAP:yes
