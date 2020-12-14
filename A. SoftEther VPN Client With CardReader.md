@@ -254,7 +254,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 4897  bytes 352284 (344.0 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
-    * vpn_soft로 default 게이트웨이가 추가 되어야 한다
+* vpn_soft로 default 게이트웨이가 추가 되어야 한다
     <pre>
     <code>[root@raspberrypi]# route
     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
@@ -290,15 +290,15 @@ dhcp-option=eth1,3,172.26.1.1</code>
 
 ## 카드 단말기가 __없는__ 아파트 모델일 경우
     
-    vpnclient 서비스를 __disable__, __stop__
+* vpnclient 서비스를 __disable__, __stop__
 
-    <pre>
-    <code>systemctl disable vpnclient
-    systemctl stop vpnclient</code></pre>
+<pre>
+<code>systemctl disable vpnclient
+systemctl stop vpnclient</code></pre>
 
-    __/etc/dnsmasq.conf__ 파일에 __eth1__ 관련 설정들 __주석처리__
+* __/etc/dnsmasq.conf__ 파일에 __eth1__ 관련 설정들 __주석처리__
 
-    <pre>
-    <code>#interface=eth1
-    #dhcp-range=eth1,172.26.1.2,172.26.1.2,12h
-    #dhcp-option=eth1,3,172.26.1.1</code></pre>
+<pre>
+<code>#interface=eth1
+#dhcp-range=eth1,172.26.1.2,172.26.1.2,12h
+#dhcp-option=eth1,3,172.26.1.1</code></pre>
