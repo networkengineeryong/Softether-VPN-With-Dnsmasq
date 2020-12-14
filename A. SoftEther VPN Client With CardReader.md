@@ -57,13 +57,13 @@ tar xvzf softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.
 
 rm -f softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz</code>
 </pre>
-
+<pre>
+<code>cd vpnserver</code>
+</pre>
 2. make (라이선스 동의, 파일 생성하는 과정)
     * make 명령 입력 시 라이센스 동의를 묻는데 모두 1로 응답하면 됩니다
-<pre>
-<code>cd vpnserver
 
-make</code>
+<pre><code>make</code>
 </pre>
 
 ## __hosts 파일에 vpnserver ip 지정__
@@ -73,9 +73,11 @@ make</code>
 * 아파트 모델의 경우 /etc/hosts 파일에 방재실에 설치되는 __서버의 IP__ 를 __vpnserver__ 로 추가합니다
 
 * 예를 들어 방재실 서버 ip가 192.168.0.6일 때 다음과 같이 추가하면 됩니다
+
+<pre><code>[root@localhost ~]# vi /etc/hosts</code></pre>
+
 <pre>
-<code>/etc/hosts
-127.0.0.1       localhost
+<code>127.0.0.1       localhost
 ::1             localhost ip6-localhost ip6-loopback
 ff02::1         ip6-allnodes
 ff02::2         ip6-allrouters
@@ -201,7 +203,8 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 1. eth1 static ip 설정  __(인터페이스 설정)__
 
-    __/etc/dhcpcd.conf__ 파일 하단에 다음 내용 추가
+<pre><code>[root@localhost ~]# vi /etc/dhcpcd.conf</code></pre>
+
 <pre>
 <code>interface eth1
 static ip_address=172.26.1.1/24</code>
@@ -209,7 +212,7 @@ static ip_address=172.26.1.1/24</code>
 
 2. dnsmasq 설정  __(인터페이스 설정)__
 
-    __/etc/dnsmasq.conf__ 파일 하단에 다음 내용 추가
+<pre><code>[root@localhost ~]# vi /etc/dnsmasq.conf</code></pre>
 <pre>
 <code>interface=eth1
 dhcp-range=eth1,172.26.1.2,172.26.1.254,12h
@@ -223,13 +226,10 @@ dhcp-option=eth1,3,172.26.1.1</code>
 <code>sysctl -w net.ipv4.ip_forward=1</code>
 </pre>
 
-2. __/etc/iptables-hs__ 파일에 MASQUERADE추가
-
-    현재 사용중인 AP모드에 필요한 규칙이 있는 파일입니다
-
-    파일 하단에 다음 내용을 추가하면 됩니다
+2. iptables 설정
+<pre><code>[root@localhost ~]# vi /etc/iptables-hs</code></pre>
     
-    __iptables -t nat -A POSTROUTING -o vpn_soft -j MASQUERADE__
+<pre><code>iptables -t nat -A POSTROUTING -o vpn_soft -j MASQUERADE</code></pre>
 
 &nbsp;
 
