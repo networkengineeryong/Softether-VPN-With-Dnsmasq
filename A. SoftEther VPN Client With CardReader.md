@@ -254,18 +254,18 @@ dhcp-option=eth1,3,172.26.1.1</code>
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 4897  bytes 352284 (344.0 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
-* vpn_soft로 default 게이트웨이가 추가 되어야 한다
-    <pre>   
-    <code>[root@raspberrypi]# route
-    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-    default         172.25.1.1      0.0.0.0         UG    0      0        0 vpn_soft</code></pre>
+* route 명령어를 입력해 다음 두 내용이 추가 되었는지 확인한다
+<pre><code>[root@raspberrypi]# route
+ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+ default         172.25.1.1      0.0.0.0         UG    0      0        0 vpn_soft
+ 10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 eth0</code></pre>
 
 &nbsp;
 
 ## 카드 단말기 아이피 할당 체크
-    <pre>
-    <code>vi /var/lib/misc/dnsmasq.leases</code></pre>
-    위 파일에 __172.26.1.2__ 의 정보가 추가 되어 있는지 확인한다
+<pre>
+<code>vi /var/lib/misc/dnsmasq.leases</code></pre>
+* 위 파일에 __172.26.1.2__ 의 정보가 추가 되어 있는지 확인한다
 
 &nbsp;
 
