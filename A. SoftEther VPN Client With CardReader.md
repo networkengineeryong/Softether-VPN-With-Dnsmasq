@@ -244,8 +244,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
 ## VPN 연결 확인
 * 인터페이스 vpn_soft에 ip가 할당되어야 한다
 
-    <pre>
-    <code>[root@raspberrypi]# ifconfig
+<pre><code>[root@raspberrypi]# ifconfig
     vpn_soft: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.25.1.10  netmask 255.255.255.224  broadcast 172.25.1.15
         inet6 fe80::5c5f:6cff:fe2c:abb9  prefixlen 64  scopeid 0x20<link>
