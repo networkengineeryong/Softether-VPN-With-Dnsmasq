@@ -235,9 +235,9 @@ dhcp-option=eth1,3,172.26.1.1</code>
 
 ## /etc/hosts 파일에 vpnserver ip 지정 
 
-    사무실에서 기본 설정을 마친 라즈베리 파이를 현장에 설치 후 (랜선 연결 까지 완료 후)
+* 사무실에서 기본 설정을 마친 라즈베리 파이를 현장에 설치 후 (랜선 연결 까지 완료 후)
 
-    __/etc/hosts__ 파일에 __vpnserver__ 의 __IP__ 를 __현장 서버 IP__ 로 변경 혹은 추가해 주면 됩니다 ([참고](#hosts-파일에-vpnserver-ip-지정))
+* __/etc/hosts__ 파일에 __vpnserver__ 의 __IP__ 를 __현장 서버 IP__ 로 변경 혹은 추가해 주면 됩니다 ([참고](#hosts-파일에-vpnserver-ip-지정))
 
 &nbsp;
 
