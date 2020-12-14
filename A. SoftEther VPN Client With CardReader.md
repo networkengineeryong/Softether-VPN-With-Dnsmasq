@@ -285,20 +285,3 @@ dhcp-option=eth1,3,172.26.1.1</code>
 <pre>
 <code>[root@localhost ~]# traceroute 8.8.8.8
 172.25.1.1  3.370 ms  4.031 ms  4.366 ms  # VPN 서버</code></pre>
-
-&nbsp;
-
-## 카드 단말기가 __없는__ 아파트 모델일 경우
-    
-* vpnclient 서비스를 __disable__, __stop__
-
-<pre>
-<code>systemctl disable vpnclient
-systemctl stop vpnclient</code></pre>
-
-* __/etc/dnsmasq.conf__ 파일에 __eth1__ 관련 설정들 __주석처리__
-
-<pre>
-<code>#interface=eth1
-#dhcp-range=eth1,172.26.1.2,172.26.1.2,12h
-#dhcp-option=eth1,3,172.26.1.1</code></pre>
