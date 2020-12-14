@@ -275,7 +275,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
 <pre>
 <code>[root@localhost ~]# traceroute 10.0.0.1
 10.x.0.1  3.370 ms  4.031 ms  4.366 ms    # 동 라우터
-10.0.0.1    6.407 ms  6.359 ms  6.523 ms  # 메인 라우터
+10.0.0.1  6.407 ms  6.359 ms  6.523 ms  # 메인 라우터
 </code></pre>
 
 * 8.8.8.8 (외부 아이피) 까지의 경로를 확인한다
@@ -284,4 +284,4 @@ dhcp-option=eth1,3,172.26.1.1</code>
 
 <pre>
 <code>[root@localhost ~]# traceroute 8.8.8.8
-172.25.1.1  3.370 ms  4.031 ms  4.366 ms  # VPN 서버</code></pre>
+172.25.1.1  3.870 ms  3.931 ms  4.166 ms  # VPN 서버</code></pre>
