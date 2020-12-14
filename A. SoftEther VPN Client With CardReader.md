@@ -255,7 +255,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
         TX packets 4897  bytes 352284 (344.0 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
 * vpn_soft로 default 게이트웨이가 추가 되어야 한다
-    <pre>
+    <pre>   
     <code>[root@raspberrypi]# route
     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
     default         172.25.1.1      0.0.0.0         UG    0      0        0 vpn_soft</code></pre>
@@ -274,7 +274,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
 * 10.0.0.1 (홈 네트워크 메인 라우터)까지의 경로를 확인한다, 거치는 경로에 172.25.1.1가 없어야 한다.
 <pre>
 <code>[root@localhost ~]# traceroute 10.0.0.1
-10.x.0.1  3.370 ms  4.031 ms  4.366 ms    # 동 라우터
+10.x.0.1  3.370 ms  4.031 ms  4.366 ms  # 동 라우터
 10.0.0.1  6.407 ms  6.359 ms  6.523 ms  # 메인 라우터
 </code></pre>
 
