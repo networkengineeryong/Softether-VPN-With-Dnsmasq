@@ -140,18 +140,28 @@ VPN Client> AccountStartupSet client
 
 * SoftEther VPN 클라이언트 서비스에 등록, 시작 프로그램 등록
 
-    __/lib/systemd/system/vpnclient.service 파일 생성 후 다음 내용 추가__
+* VPN이 실행된 후 내부 인터넷과의 통신은 그대로 이더넷을 사용해야 한다.
+
+* 일반적으로 아파트 홈 네트워크는 10.0.0.0 대역대의 아이피를 사용한다
+
+* /sbin/ip route add 10.0.0.0/8 dev eth0 명령을 추가해주면 10으로 시작하는 모든 내부인터넷은 eth0을 사용하게 된다
 <pre>
-<code>#!/bin/sh
-[Unit]
+<code>vi /lib/systemd/system/vpnclient.service</code>
+</pre>
+
+<pre>
+<code>[Unit]
 Description=SoftEther VPN Client
 After=network.target
 [Service]
 Type=forking
-ExecStart=/usr/local/vpnclient/vpnclient start
+ExecStart=sudo /usr/local/vpnclient/vpnclient start
 ExecStartPost=/bin/sleep 2
 ExecStartPost=/sbin/dhclient vpn_soft
-ExecStop=/usr/local/vpnclient/vpnclient stop
+ExecStartPost=/sbin/ip route add 10.0.0.0/8 dev eth0
+ExecStop=sudo /usr/local/vpnclient/vpnclient stop
+KillMode=control-group
+Restart=on-failure
 TimeoutSec=1728000
 [Install]
 WantedBy=multi-user.target</code>
@@ -219,17 +229,21 @@ dhcp-option=eth1,3,172.26.1.1</code>
     
     __iptables -t nat -A POSTROUTING -o vpn_soft -j MASQUERADE__
 
+&nbsp;
 
-## __현장 설치 메뉴얼__
+# __현장 설치 메뉴얼__
 
-* /etc/hosts 파일에 vpnserver ip 지정 
+## /etc/hosts 파일에 vpnserver ip 지정 
 
     사무실에서 기본 설정을 마친 라즈베리 파이를 현장에 설치 후 (랜선 연결 까지 완료 후)
 
     __/etc/hosts__ 파일에 __vpnserver__ 의 __IP__ 를 __현장 서버 IP__ 로 변경 혹은 추가해 주면 됩니다 ([참고](#hosts-파일에-vpnserver-ip-지정))
 
-* VPN 연결 확인
-    * 인터페이스 vpn_soft에 ip가 할당되어야 한다
+&nbsp;
+
+## VPN 연결 확인
+* 인터페이스 vpn_soft에 ip가 할당되어야 한다
+
     <pre>
     <code>[root@raspberrypi]# ifconfig
     vpn_soft: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -246,12 +260,35 @@ dhcp-option=eth1,3,172.26.1.1</code>
     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
     default         172.25.1.1      0.0.0.0         UG    0      0        0 vpn_soft</code></pre>
 
-* 카드 단말기 아이피 할당 체크
+&nbsp;
+
+## 카드 단말기 아이피 할당 체크
     <pre>
     <code>vi /var/lib/misc/dnsmasq.leases</code></pre>
     위 파일에 __172.26.1.2__ 의 정보가 추가 되어 있는지 확인한다
 
-* 카드 단말기가 __없는__ 아파트 모델일 경우
+&nbsp;
+
+## traceroute 명령으로 트래픽 경로 추적
+
+* 10.0.0.1 (홈 네트워크 메인 라우터)까지의 경로를 확인한다, 거치는 경로에 172.25.1.1가 없어야 한다.
+<pre>
+<code>[root@localhost ~]# traceroute 10.0.0.1
+10.x.0.1  3.370 ms  4.031 ms  4.366 ms    # 동 라우터
+10.0.0.1    6.407 ms  6.359 ms  6.523 ms  # 메인 라우터
+</code></pre>
+
+* 8.8.8.8 (외부 아이피) 까지의 경로를 확인한다
+
+* 확인하는 시점에선 네트워크가 안 들어와 있을테니 경로에 172.25.1.1이 있는지 확인한다.
+
+<pre>
+<code>[root@localhost ~]# traceroute 8.8.8.8
+172.25.1.1  3.370 ms  4.031 ms  4.366 ms  # VPN 서버</code></pre>
+
+&nbsp;
+
+## 카드 단말기가 __없는__ 아파트 모델일 경우
     
     vpnclient 서비스를 __disable__, __stop__
 
