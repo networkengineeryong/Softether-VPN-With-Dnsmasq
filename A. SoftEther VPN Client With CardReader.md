@@ -204,7 +204,7 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
     __/etc/dhcpcd.conf__ 파일 하단에 다음 내용 추가
 <pre>
 <code>interface eth1
-static ip_address=172.26.1.1/30</code>
+static ip_address=172.26.1.1/24</code>
 </pre>
 
 2. dnsmasq 설정  __(인터페이스 설정)__
@@ -212,7 +212,7 @@ static ip_address=172.26.1.1/30</code>
     __/etc/dnsmasq.conf__ 파일 하단에 다음 내용 추가
 <pre>
 <code>interface=eth1
-dhcp-range=eth1,172.26.1.2,172.26.1.2,12h
+dhcp-range=eth1,172.26.1.2,172.26.1.254,12h
 dhcp-option=eth1,3,172.26.1.1</code>
 </pre>
 
