@@ -266,7 +266,7 @@ dhcp-option=eth1,3,172.26.1.1</code>
 ## 카드 단말기 아이피 할당 체크
 <pre>
 <code>vi /var/lib/misc/dnsmasq.leases</code></pre>
-* 위 파일에 __172.26.1.2__ 의 정보가 추가 되어 있는지 확인한다
+* 위 파일에 __172.26.1.x__ 의 정보가 추가 되어 있는지 확인한다
 
 &nbsp;
 
