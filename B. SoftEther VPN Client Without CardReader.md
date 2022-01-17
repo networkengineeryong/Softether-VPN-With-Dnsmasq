@@ -65,7 +65,7 @@ rm -f softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-arm_eabi-32bit.tar.gz<
 2. make (라이선스 동의, 파일 생성하는 과정)
     * make 명령 입력 시 라이센스 동의를 묻는데 모두 1로 응답하면 됩니다
 <pre>
-<code>cd vpnserver
+<code>cd vpnclient
 
 make</code>
 </pre>
@@ -112,7 +112,7 @@ sed -i 's/'"$bool AllowRemoteConfig false"'/'"$bool AllowRemoteConfig true"'/' v
 VPN Client> NicCreate soft
 # 가상 랜카드 생성 {실제 생성되는 인터페이스 = vpn_soft}
 
-VPN Client> AccountCreate client /server:vpnserver:443 /hub:server /username:client /nicname:soft
+VPN Client> AccountCreate client /server:vpnserver:443 /hub:VPN /username:client /nicname:soft
 # 연결 계정 설정 {계정명, 서버IP, 허브명, 유저명, 가상 랜카드 명}
 
 VPN Client> AccountPasswordSet client /password:client /type:standard
